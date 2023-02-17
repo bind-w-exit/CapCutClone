@@ -6,21 +6,51 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Style="{StaticResource PageStyle}"
     mc:Ignorable="d">
-    <Grid x:Name="ContentArea" Margin="{StaticResource MediumLeftRightMargin}">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="48" />
-            <RowDefinition Height="*" />
-        </Grid.RowDefinitions>
 
-        <TextBlock
-            x:Uid="Main_Title"
-            Grid.Row="0"
-            Style="{StaticResource PageTitleStyle}" />
-        <Grid Grid.Row="1" Background="{ThemeResource SystemControlPageBackgroundChromeLowBrush}">
-            <!--
-                The SystemControlPageBackgroundChromeLowBrush background represents where you should place your content.
-                Place your content here.
-            -->
+    <Grid Background="{ThemeResource SystemControlPageBackgroundChromeLowBrush}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="220" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <Button
+            Height="50"
+            Margin="20"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Top"
+            Content="Sign in"
+            FontWeight="Bold" />
+
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="150" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <Button
+                Margin="20"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Stretch"
+                Content="New project"
+                FontWeight="Bold" />
+
+            <RelativePanel Grid.Row="1" Margin="20,0,20,0">
+
+                <TextBlock
+                    FontWeight="Bold"
+                    RelativePanel.AlignVerticalCenterWithPanel="True"
+                    Text="Projects" />
+                <SearchBox
+                    x:Name="SearchField"
+                    Width="300"
+                    Margin="0,0,10,0"
+                    RelativePanel.LeftOf="ViewComboBox" />
+                <ComboBox x:Name="ViewComboBox" RelativePanel.AlignRightWithPanel="True" />
+
+            </RelativePanel>
+
         </Grid>
+
     </Grid>
 </Page>

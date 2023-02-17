@@ -2,6 +2,9 @@
 using System;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
+using Windows.ApplicationModel.Core;
+using Windows.Foundation;
+using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
@@ -51,6 +54,13 @@ namespace CapCutClone
                 // Ensure the current window is active
                 Window.Current.Activate();
             }
+
+            // Use these only if no app local settings exist yet,
+            // otherwise, after first run, write the WindowWidthLast and WindowHeightLast to Local Settings,
+            // and try to Read them at every startup...
+            ApplicationView.PreferredLaunchViewSize = new Size(1000, 600);
+            ApplicationView.PreferredLaunchWindowingMode = ApplicationViewWindowingMode.PreferredLaunchViewSize;
+            CoreApplication.GetCurrentView().TitleBar.ExtendViewIntoTitleBar = false;
         }
 
         /// <summary>
