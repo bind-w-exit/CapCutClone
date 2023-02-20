@@ -15,21 +15,21 @@
         </Grid.ColumnDefinitions>
 
         <Button
+            x:Uid="Main_SignIn"
             Height="50"
             Margin="20"
             HorizontalAlignment="Stretch"
             VerticalAlignment="Top"
-            Content="Sign in"
             CornerRadius="5"
             FontWeight="Bold" />
 
         <Button
+            x:Uid="Main_Settings"
             Height="50"
             Margin="20"
             HorizontalAlignment="Stretch"
             VerticalAlignment="Bottom"
             Click="Button_Click"
-            Content="Settings"
             CornerRadius="5"
             FontWeight="Bold" />
 
@@ -55,20 +55,19 @@
                             Foreground="LightBlue"
                             Glyph="&#xe147;" />
                         <TextBlock
+                            x:Uid="Main_NewProject"
                             VerticalAlignment="Center"
-                            FontWeight="Bold"
-                            Text="New project" />
+                            FontWeight="Bold" />
                     </StackPanel>
                 </Button.Content>
             </Button>
 
             <RelativePanel Grid.Row="1" Margin="20,0,20,0">
                 <TextBlock
+                    x:Uid="Main_Projects"
                     FontWeight="Bold"
-                    RelativePanel.AlignVerticalCenterWithPanel="True"
-                    Text="Projects" />
+                    RelativePanel.AlignVerticalCenterWithPanel="True" />
                 <SearchBox
-                    x:Name="SearchField"
                     Width="300"
                     Margin="0,0,10,0"
                     RelativePanel.LeftOf="ViewComboBox"
@@ -87,9 +86,9 @@
                     Foreground="Gray"
                     Glyph="&#xe071;" />
                 <TextBlock
+                    x:Uid="Main_HelloMsg"
                     VerticalAlignment="Center"
-                    Foreground="Gray"
-                    Text="Project edited will be saved automatically. Start creating your own videos!" />
+                    Foreground="Gray" />
             </StackPanel>
 
         </Grid>

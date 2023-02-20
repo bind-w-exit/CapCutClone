@@ -13,16 +13,18 @@
     mc:Ignorable="d">
 
     <NavigationView
-        x:Name="rootNavigationView"
         IsBackButtonVisible="Collapsed"
         IsSettingsVisible="False"
         PaneDisplayMode="Top">
         <NavigationView.MenuItems>
-            <NavigationViewItem x:Name="Section1Content" Content="Project" />
-            <NavigationViewItem x:Name="Section2Content" Content="Edit" />
-            <NavigationViewItem x:Name="Section3Content" Content="Perfomance" />
-            <NavigationViewItem x:Name="Section4Content" Content="Language" />
+            <NavigationViewItem x:Uid="Settings_Project" />
+            <NavigationViewItem x:Uid="Settings_Edit" />
+            <NavigationViewItem x:Uid="Settings_Perfomance" />
+            <NavigationViewItem x:Uid="Settings_Language" />
         </NavigationView.MenuItems>
-        <Frame x:Name="contentFrame" />
+        <Frame
+            x:Name="ContentFrame"
+            Width="300"
+            Height="400" />
     </NavigationView>
 </ContentDialog>

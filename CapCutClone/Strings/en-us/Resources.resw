@@ -125,8 +125,32 @@
     <value>CapCutClone</value>
     <comment>Application description</comment>
   </data>
-  <data name="Main_Title.Text" xml:space="preserve">
-    <value>Main</value>
+  <data name="Main_SignIn.Content" xml:space="preserve">
+    <value>Sign In</value>
     <comment>Page title for MainPage</comment>
+  </data>
+  <data name="Main_HelloMsg.Text" xml:space="preserve">
+    <value>Project edited will be saved automatically. Start creating your own videos!</value>
+  </data>
+  <data name="Main_NewProject.Text" xml:space="preserve">
+    <value>New project</value>
+  </data>
+  <data name="Main_Projects.Text" xml:space="preserve">
+    <value>Projects</value>
+  </data>
+  <data name="Main_Settings.Content" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="Settings_Edit.Content" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="Settings_Language.Content" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="Settings_Perfomance.Content" xml:space="preserve">
+    <value>Perfomance</value>
+  </data>
+  <data name="Settings_Project.Content" xml:space="preserve">
+    <value>Project</value>
   </data>
 </root>
