@@ -1,4 +1,7 @@
-﻿using CapCutClone.Views;
+﻿using CapCutClone.ViewModels;
+using CapCutClone.Views;
+using CommunityToolkit.Mvvm.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
@@ -40,8 +43,14 @@ namespace CapCutClone
 
                 // Place the frame in the current Window
                 Window.Current.Content = rootFrame;
-            }
 
+                // Register services
+                Ioc.Default.ConfigureServices(
+                    new ServiceCollection()
+                    .AddTransient<MainViewModel>() //ViewModels
+                    .BuildServiceProvider());
+            }
+            
             if (e.PrelaunchActivated == false)
             {
                 if (rootFrame.Content == null)

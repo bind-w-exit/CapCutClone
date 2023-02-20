@@ -64,9 +64,16 @@
 
             <RelativePanel Grid.Row="1" Margin="20,0,20,0">
                 <TextBlock
+                    x:Name="ProjectsTextBlock"
                     x:Uid="Main_Projects"
                     FontWeight="Bold"
                     RelativePanel.AlignVerticalCenterWithPanel="True" />
+                <TextBlock
+                    Margin="5,0,0,0"
+                    FontWeight="Bold"
+                    RelativePanel.AlignVerticalCenterWithPanel="True"
+                    RelativePanel.RightOf="ProjectsTextBlock"
+                    Text="{x:Bind ViewModel.ProjectsCount}" />
                 <SearchBox
                     Width="300"
                     Margin="0,0,10,0"
