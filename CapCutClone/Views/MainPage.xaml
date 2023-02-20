@@ -19,7 +19,18 @@
             HorizontalAlignment="Stretch"
             VerticalAlignment="Top"
             Content="Sign in"
+            CornerRadius="5"
             FontWeight="Bold" />
+
+        <Button
+            Height="50"
+            Margin="20"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Bottom"
+            Content="Settings"
+            CornerRadius="5"
+            FontWeight="Bold" />
+
 
         <Grid Grid.Column="1">
             <Grid.RowDefinitions>
@@ -32,11 +43,24 @@
                 Margin="20"
                 HorizontalAlignment="Stretch"
                 VerticalAlignment="Stretch"
-                Content="New project"
-                FontWeight="Bold" />
+                CornerRadius="10"
+                FontWeight="Bold">
+                <Button.Content>
+                    <StackPanel Orientation="Horizontal" Spacing="10">
+                        <FontIcon
+                            FontFamily="{StaticResource MaterialIcons}"
+                            FontSize="25"
+                            Foreground="LightBlue"
+                            Glyph="&#xe147;" />
+                        <TextBlock
+                            VerticalAlignment="Center"
+                            FontWeight="Bold"
+                            Text="New project" />
+                    </StackPanel>
+                </Button.Content>
+            </Button>
 
             <RelativePanel Grid.Row="1" Margin="20,0,20,0">
-
                 <TextBlock
                     FontWeight="Bold"
                     RelativePanel.AlignVerticalCenterWithPanel="True"
@@ -45,10 +69,26 @@
                     x:Name="SearchField"
                     Width="300"
                     Margin="0,0,10,0"
-                    RelativePanel.LeftOf="ViewComboBox" />
+                    RelativePanel.LeftOf="ViewComboBox"
+                    SearchHistoryEnabled="False" />
                 <ComboBox x:Name="ViewComboBox" RelativePanel.AlignRightWithPanel="True" />
-
             </RelativePanel>
+
+            <StackPanel
+                Grid.Row="2"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Spacing="10">
+                <FontIcon
+                    FontFamily="{StaticResource MaterialIcons}"
+                    FontSize="75"
+                    Foreground="Gray"
+                    Glyph="&#xe071;" />
+                <TextBlock
+                    VerticalAlignment="Center"
+                    Foreground="Gray"
+                    Text="Project edited will be saved automatically. Start creating your own videos!" />
+            </StackPanel>
 
         </Grid>
 

@@ -187,6 +187,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="CapCutClone_TemporaryKey.pfx" />
+    <Content Include="Assets\Fonts\MaterialIcons-Regular.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
