@@ -1,4 +1,5 @@
 ﻿using CapCutClone.ViewModels;
+using System;
 using Windows.UI.Xaml.Controls;
 
 namespace CapCutClone.Views
@@ -10,6 +11,12 @@ namespace CapCutClone.Views
         public MainPage()
         {
             InitializeComponent();
+        }
+
+        private async void Button_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            var dialog = new SettingsDialog();
+            var res = await dialog.ShowAsync();
         }
     }
 }

@@ -1,0 +1,28 @@
+﻿<ContentDialog
+    x:Class="CapCutClone.Views.SettingsDialog"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="Settings"
+    CornerRadius="10"
+    PrimaryButtonClick="ContentDialog_PrimaryButtonClick"
+    PrimaryButtonText="Save"
+    SecondaryButtonClick="ContentDialog_SecondaryButtonClick"
+    SecondaryButtonText="Cancel"
+    mc:Ignorable="d">
+
+    <NavigationView
+        x:Name="rootNavigationView"
+        IsBackButtonVisible="Collapsed"
+        IsSettingsVisible="False"
+        PaneDisplayMode="Top">
+        <NavigationView.MenuItems>
+            <NavigationViewItem x:Name="Section1Content" Content="Project" />
+            <NavigationViewItem x:Name="Section2Content" Content="Edit" />
+            <NavigationViewItem x:Name="Section3Content" Content="Perfomance" />
+            <NavigationViewItem x:Name="Section4Content" Content="Language" />
+        </NavigationView.MenuItems>
+        <Frame x:Name="contentFrame" />
+    </NavigationView>
+</ContentDialog>
