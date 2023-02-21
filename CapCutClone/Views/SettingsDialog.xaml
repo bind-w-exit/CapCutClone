@@ -12,19 +12,228 @@
     SecondaryButtonText="Cancel"
     mc:Ignorable="d">
 
-    <NavigationView
-        IsBackButtonVisible="Collapsed"
-        IsSettingsVisible="False"
-        PaneDisplayMode="Top">
-        <NavigationView.MenuItems>
-            <NavigationViewItem x:Uid="Settings_Project" />
-            <NavigationViewItem x:Uid="Settings_Edit" />
-            <NavigationViewItem x:Uid="Settings_Perfomance" />
-            <NavigationViewItem x:Uid="Settings_Language" />
-        </NavigationView.MenuItems>
-        <Frame
-            x:Name="ContentFrame"
-            Width="300"
-            Height="400" />
-    </NavigationView>
+    <Grid>
+        <Pivot>
+
+            <PivotItem x:Uid="Settings_Project" Margin="15">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="150" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Text="Save to" />
+                    <StackPanel
+                        Grid.Column="1"
+                        Orientation="Horizontal"
+                        Spacing="20">
+
+                        <TextBlock VerticalAlignment="Center" Text="Path////" />
+                        <Button Background="Transparent" CornerRadius="5">
+                            <Button.Content>
+                                <FontIcon FontFamily="{StaticResource MaterialIcons}" Glyph="&#xe2c7;" />
+                            </Button.Content>
+                        </Button>
+                    </StackPanel>
+
+                    <TextBlock
+                        Grid.Row="1"
+                        Text="Cache management"
+                        TextWrapping="Wrap" />
+                    <StackPanel Grid.Row="1" Grid.Column="1">
+                        <RadioButton Content="Don`t delete cache files" />
+                        <RadioButton VerticalAlignment="Center">
+                            <RadioButton.Content>
+                                <StackPanel Orientation="Horizontal" Spacing="20">
+                                    <TextBlock
+                                        Grid.Row="1"
+                                        VerticalAlignment="Center"
+                                        Text="Auto delete cache " />
+                                    <ComboBox CornerRadius="5" />
+                                    <TextBlock
+                                        Grid.Row="1"
+                                        VerticalAlignment="Center"
+                                        Text="days ago" />
+                                </StackPanel>
+                            </RadioButton.Content>
+                        </RadioButton>
+                    </StackPanel>
+
+                    <TextBlock Grid.Row="2" Text="Cache size" />
+                    <StackPanel
+                        Grid.Row="2"
+                        Grid.Column="1"
+                        Orientation="Horizontal"
+                        Spacing="20">
+                        <TextBlock VerticalAlignment="Center" Text="30.05 MB" />
+                        <Button Background="Transparent" CornerRadius="5">
+                            <Button.Content>
+                                <FontIcon FontFamily="{StaticResource MaterialIcons}" Glyph="&#xe872;" />
+                            </Button.Content>
+                        </Button>
+                    </StackPanel>
+                </Grid>
+            </PivotItem>
+
+            <PivotItem x:Uid="Settings_Edit" Margin="15">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="150" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Text="Image duration" />
+                    <StackPanel Grid.Column="1" Orientation="Horizontal">
+                        <TextBox
+                            VerticalAlignment="Center"
+                            CornerRadius="5"
+                            PlaceholderText="Duration"
+                            Text="5.0" />
+                        <StackPanel>
+                            <Button Background="Transparent" CornerRadius="5">
+                                <Button.Content>
+                                    <FontIcon
+                                        FontFamily="{StaticResource MaterialIcons}"
+                                        FontSize="10"
+                                        Glyph="&#xe5ce;" />
+                                </Button.Content>
+                            </Button>
+                            <Button Background="Transparent" CornerRadius="5">
+                                <Button.Content>
+                                    <FontIcon
+                                        FontFamily="{StaticResource MaterialIcons}"
+                                        FontSize="10"
+                                        Glyph="&#xe5cf;" />
+                                </Button.Content>
+                            </Button>
+                        </StackPanel>
+                        <ComboBox VerticalAlignment="Center" CornerRadius="5" />
+                    </StackPanel>
+
+                    <!--  Separator  -->
+                    <Rectangle
+                        Grid.Row="1"
+                        Grid.ColumnSpan="2"
+                        Height="2"
+                        HorizontalAlignment="Stretch"
+                        Fill="Gray" />
+
+                    <TextBlock Grid.Row="2" Text="Free layer" />
+                    <StackPanel Grid.Row="2" Grid.Column="1">
+                        <CheckBox Content="Free layer is turned on by default when a new project is created" />
+                    </StackPanel>
+
+                    <TextBlock Grid.Row="3" Text="Frame rate" />
+                    <ComboBox
+                        Grid.Row="3"
+                        Grid.Column="1"
+                        CornerRadius="5" />
+
+                    <TextBlock Grid.Row="4" Text="Time code" />
+                    <ComboBox
+                        Grid.Row="4"
+                        Grid.Column="1"
+                        CornerRadius="5" />
+                </Grid>
+            </PivotItem>
+
+            <PivotItem x:Uid="Settings_Perfomance" Margin="15">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="150" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Text="Encode settings" />
+                    <StackPanel Grid.Column="1">
+                        <CheckBox Content="Speed up hardware encoding" />
+                        <CheckBox Content="Speed up hardware decoding" />
+                    </StackPanel>
+
+                    <!--  Separator  -->
+                    <Rectangle
+                        Grid.Row="1"
+                        Grid.ColumnSpan="2"
+                        Height="2"
+                        HorizontalAlignment="Stretch"
+                        Fill="Gray" />
+
+                    <TextBlock Grid.Row="2" Text="Interface rendering" />
+                    <CheckBox
+                        Grid.Row="2"
+                        Grid.Column="1"
+                        Content="Render interface with GPU" />
+
+                    <!--  Separator  -->
+                    <Rectangle
+                        Grid.Row="3"
+                        Grid.ColumnSpan="2"
+                        Height="2"
+                        HorizontalAlignment="Stretch"
+                        Fill="Gray" />
+
+                    <TextBlock Grid.Row="4" Text="Proxy" />
+                    <CheckBox
+                        Grid.Row="4"
+                        Grid.Column="1"
+                        Content="Proxy mode is turned on by default when a new project is created" />
+
+                    <TextBlock Grid.Row="5" Text="Proxy location" />
+                    <StackPanel
+                        Grid.Row="5"
+                        Grid.Column="1"
+                        Orientation="Horizontal"
+                        Spacing="20">
+
+                        <TextBlock VerticalAlignment="Center" Text="Path////" />
+                        <Button Background="Transparent" CornerRadius="5">
+                            <Button.Content>
+                                <FontIcon FontFamily="{StaticResource MaterialIcons}" Glyph="&#xe2c7;" />
+                            </Button.Content>
+                        </Button>
+                    </StackPanel>
+
+                    <TextBlock Grid.Row="6" Text="Proxy size" />
+                    <StackPanel
+                        Grid.Row="6"
+                        Grid.Column="1"
+                        Orientation="Horizontal"
+                        Spacing="20">
+                        <TextBlock VerticalAlignment="Center" Text="10.05 MB" />
+                        <Button Background="Transparent" CornerRadius="5">
+                            <Button.Content>
+                                <FontIcon FontFamily="{StaticResource MaterialIcons}" Glyph="&#xe872;" />
+                            </Button.Content>
+                        </Button>
+                    </StackPanel>
+                </Grid>
+            </PivotItem>
+
+            <PivotItem x:Uid="Settings_Language" Margin="15">
+                <ListView />
+            </PivotItem>
+        </Pivot>
+    </Grid>
+
 </ContentDialog>

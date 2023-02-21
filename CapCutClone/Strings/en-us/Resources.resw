@@ -141,16 +141,16 @@
   <data name="Main_Settings.Content" xml:space="preserve">
     <value>Settings</value>
   </data>
-  <data name="Settings_Edit.Content" xml:space="preserve">
+  <data name="Settings_Edit.Header" xml:space="preserve">
     <value>Edit</value>
   </data>
-  <data name="Settings_Language.Content" xml:space="preserve">
+  <data name="Settings_Language.Header" xml:space="preserve">
     <value>Language</value>
   </data>
-  <data name="Settings_Perfomance.Content" xml:space="preserve">
+  <data name="Settings_Perfomance.Header" xml:space="preserve">
     <value>Perfomance</value>
   </data>
-  <data name="Settings_Project.Content" xml:space="preserve">
+  <data name="Settings_Project.Header" xml:space="preserve">
     <value>Project</value>
   </data>
 </root>
