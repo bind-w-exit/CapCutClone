@@ -1,6 +1,6 @@
-﻿using Windows.UI.Xaml.Controls;
-
-// The Content Dialog item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
+﻿using CapCutClone.ViewModels;
+using CommunityToolkit.Mvvm.DependencyInjection;
+using Windows.UI.Xaml.Controls;
 
 namespace CapCutClone.Views
 {
@@ -8,8 +8,12 @@ namespace CapCutClone.Views
     {
         public SettingsDialog()
         {
-            this.InitializeComponent();
+            InitializeComponent();
+            DataContext = Ioc.Default.GetRequiredService<SettingsViewModel>();
         }
+
+        public SettingsViewModel ViewModel => (SettingsViewModel)DataContext;
+
 
         private void ContentDialog_PrimaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
         {

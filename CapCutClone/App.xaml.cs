@@ -1,4 +1,5 @@
-﻿using CapCutClone.ViewModels;
+﻿using CapCutClone.Services;
+using CapCutClone.ViewModels;
 using CapCutClone.Views;
 using CommunityToolkit.Mvvm.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection;
@@ -47,7 +48,9 @@ namespace CapCutClone
                 // Register services
                 Ioc.Default.ConfigureServices(
                     new ServiceCollection()
+                    .AddSingleton<SettingsService>() //Services
                     .AddTransient<MainViewModel>() //ViewModels
+                    .AddTransient<SettingsViewModel>()
                     .BuildServiceProvider());
             }
             
