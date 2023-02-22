@@ -1,4 +1,5 @@
-﻿using CapCutClone.Models;
+﻿using CapCutClone.Enums;
+using CapCutClone.Models;
 using System;
 using Windows.Storage;
 
@@ -22,13 +23,15 @@ namespace CapCutClone.Services
         /// </summary>
         public bool CacheManegment { get; set; }
 
-        public uint AutoDeleteCacheTime { get; set; }
+        public TimePeriod AutoDeleteCachePeriod { get; set; }
 
         public uint ImageDuration { get; set; }
 
+        public DurationUnit ImageDurationUnit { get; set; }
+
         public bool IsFreeLayerTurnedOn { get; set; }
 
-        public uint FrameRate { get; set; }
+        public FrameRate FrameRate { get; set; }
 
         public string TimeCode { get; set; }
 
@@ -50,18 +53,19 @@ namespace CapCutClone.Services
 
         public void Load()
         {
-            ProjectSavePath = GetValueOrDefault(nameof(ProjectSavePath), "");
+            ProjectSavePath = GetValueOrDefault(nameof(ProjectSavePath), "Path////");
             CacheManegment = GetValueOrDefault(nameof(CacheManegment), false);
-            AutoDeleteCacheTime = GetValueOrDefault(nameof(AutoDeleteCacheTime), (uint)30);
+            AutoDeleteCachePeriod = GetValueOrDefault(nameof(AutoDeleteCachePeriod), TimePeriod.ThirtyDays);
             ImageDuration = GetValueOrDefault(nameof(ImageDuration), (uint)180);
-            IsFreeLayerTurnedOn = GetValueOrDefault(nameof(IsFreeLayerTurnedOn), false);
-            FrameRate = GetValueOrDefault(nameof(FrameRate), (uint)60);
+            ImageDurationUnit = GetValueOrDefault(nameof(ImageDurationUnit), DurationUnit.Frame);
+            IsFreeLayerTurnedOn = GetValueOrDefault(nameof(IsFreeLayerTurnedOn), true);
+            FrameRate = GetValueOrDefault(nameof(FrameRate), FrameRate._60FPS);
             TimeCode = GetValueOrDefault(nameof(TimeCode), "HH:MM:SS+frame");
             IsHardwareEncodingEnabled = GetValueOrDefault(nameof(IsHardwareEncodingEnabled), true);
             IsHardwareDecodingEnabled = GetValueOrDefault(nameof(IsHardwareDecodingEnabled), true);
             IsRenderWithGpuEnabled = GetValueOrDefault(nameof(IsRenderWithGpuEnabled), true);
             IsProxyEnabled = GetValueOrDefault(nameof(IsProxyEnabled), true);
-            ProxySavePath = GetValueOrDefault(nameof(ProxySavePath), "");
+            ProxySavePath = GetValueOrDefault(nameof(ProxySavePath), "Path////");
             SelectedLanguage = GetValueOrDefault(nameof(SelectedLanguage), new LanguageItem("en-US", "English"));
 
             SettingsLoadedEvent?.Invoke(this, EventArgs.Empty);
@@ -71,7 +75,7 @@ namespace CapCutClone.Services
         {
             _localSettings.Values[nameof(ProjectSavePath)] = ProjectSavePath;
             _localSettings.Values[nameof(CacheManegment)] = CacheManegment;
-            _localSettings.Values[nameof(AutoDeleteCacheTime)] = AutoDeleteCacheTime;
+            _localSettings.Values[nameof(AutoDeleteCachePeriod)] = AutoDeleteCachePeriod;
             _localSettings.Values[nameof(ImageDuration)] = ImageDuration;
             _localSettings.Values[nameof(IsFreeLayerTurnedOn)] = IsFreeLayerTurnedOn;
             _localSettings.Values[nameof(FrameRate)] = FrameRate;

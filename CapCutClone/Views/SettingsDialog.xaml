@@ -3,14 +3,21 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:helpers="using:CapCutClone.Helpers"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewmodels="using:CapCutClone.ViewModels"
     Title="Settings"
+    d:DataContext="{d:DesignInstance Type=viewmodels:SettingsViewModel}"
     CornerRadius="10"
     PrimaryButtonClick="ContentDialog_PrimaryButtonClick"
     PrimaryButtonText="Save"
     SecondaryButtonClick="ContentDialog_SecondaryButtonClick"
     SecondaryButtonText="Cancel"
     mc:Ignorable="d">
+
+    <ContentDialog.Resources>
+        <helpers:InvertedBoolConverter x:Key="InvertedBoolConverter" />
+    </ContentDialog.Resources>
 
     <Grid>
         <Pivot>
@@ -27,14 +34,14 @@
                         <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
 
-                    <TextBlock Text="Save to" />
+                    <TextBlock x:Uid="Settings_SaveTo" />
                     <StackPanel
                         Grid.Column="1"
                         Orientation="Horizontal"
                         Spacing="20">
 
-                        <TextBlock VerticalAlignment="Center" Text="Path////" />
-                        <Button Background="Transparent" CornerRadius="5">
+                        <TextBlock Text="{x:Bind ViewModel.ProjectSavePath}" />
+                        <Button Command="{x:Bind ViewModel.SelectProjectSavePathCommand}" Style="{StaticResource ButtonStyle}">
                             <Button.Content>
                                 <FontIcon FontFamily="{StaticResource MaterialIcons}" Glyph="&#xe2c7;" />
                             </Button.Content>
@@ -42,36 +49,39 @@
                     </StackPanel>
 
                     <TextBlock
+                        x:Uid="Settings_CacheManagement"
                         Grid.Row="1"
-                        Text="Cache management"
                         TextWrapping="Wrap" />
                     <StackPanel Grid.Row="1" Grid.Column="1">
-                        <RadioButton Content="Don`t delete cache files" />
-                        <RadioButton VerticalAlignment="Center">
+                        <RadioButton x:Uid="Settings_DontDeleteCache" IsChecked="{x:Bind ViewModel.CacheManegment, Mode=TwoWay, Converter={StaticResource InvertedBoolConverter}}" />
+                        <RadioButton IsChecked="{x:Bind ViewModel.CacheManegment, Mode=TwoWay}">
                             <RadioButton.Content>
                                 <StackPanel Orientation="Horizontal" Spacing="20">
                                     <TextBlock
+                                        x:Uid="Settings_AutoDeleteCache"
                                         Grid.Row="1"
-                                        VerticalAlignment="Center"
-                                        Text="Auto delete cache " />
-                                    <ComboBox CornerRadius="5" />
+                                        VerticalAlignment="Center" />
+                                    <ComboBox
+                                        ItemsSource="{x:Bind ViewModel.AutoDeleteCachePeriods}"
+                                        SelectedItem="{x:Bind ViewModel.SelectedAutoDeleteCachePeriod, Mode=TwoWay}"
+                                        Style="{StaticResource ComboBoxStyle}" />
                                     <TextBlock
+                                        x:Uid="Settings_DaysAgo"
                                         Grid.Row="1"
-                                        VerticalAlignment="Center"
-                                        Text="days ago" />
+                                        VerticalAlignment="Center" />
                                 </StackPanel>
                             </RadioButton.Content>
                         </RadioButton>
                     </StackPanel>
 
-                    <TextBlock Grid.Row="2" Text="Cache size" />
+                    <TextBlock x:Uid="Settings_CacheSize" Grid.Row="2" />
                     <StackPanel
                         Grid.Row="2"
                         Grid.Column="1"
                         Orientation="Horizontal"
                         Spacing="20">
-                        <TextBlock VerticalAlignment="Center" Text="30.05 MB" />
-                        <Button Background="Transparent" CornerRadius="5">
+                        <TextBlock VerticalAlignment="Center" Text="{x:Bind ViewModel.CacheSize}" />
+                        <Button Command="{x:Bind ViewModel.DeleteProjectCacheCommand}" Style="{StaticResource ButtonStyle}">
                             <Button.Content>
                                 <FontIcon FontFamily="{StaticResource MaterialIcons}" Glyph="&#xe872;" />
                             </Button.Content>
@@ -94,58 +104,67 @@
                         <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
 
-                    <TextBlock Text="Image duration" />
+                    <TextBlock x:Uid="Settings_ImageDuration" />
                     <StackPanel Grid.Column="1" Orientation="Horizontal">
                         <TextBox
                             VerticalAlignment="Center"
-                            CornerRadius="5"
-                            PlaceholderText="Duration"
-                            Text="5.0" />
+                            IsReadOnly="True"
+                            Style="{StaticResource TextBoxStyle}"
+                            Text="{x:Bind ViewModel.ImageDuration, Mode=OneWay}" />
                         <StackPanel>
-                            <Button Background="Transparent" CornerRadius="5">
-                                <Button.Content>
+                            <RepeatButton Command="{x:Bind ViewModel.IncrementImageDuration}" Style="{StaticResource RepeatButtonStyle}">
+                                <RepeatButton.Content>
                                     <FontIcon
                                         FontFamily="{StaticResource MaterialIcons}"
                                         FontSize="10"
                                         Glyph="&#xe5ce;" />
-                                </Button.Content>
-                            </Button>
-                            <Button Background="Transparent" CornerRadius="5">
-                                <Button.Content>
+                                </RepeatButton.Content>
+                            </RepeatButton>
+                            <RepeatButton Command="{x:Bind ViewModel.DecrementImageDuration}" Style="{StaticResource RepeatButtonStyle}">
+                                <RepeatButton.Content>
                                     <FontIcon
                                         FontFamily="{StaticResource MaterialIcons}"
                                         FontSize="10"
                                         Glyph="&#xe5cf;" />
-                                </Button.Content>
-                            </Button>
+                                </RepeatButton.Content>
+                            </RepeatButton>
                         </StackPanel>
-                        <ComboBox VerticalAlignment="Center" CornerRadius="5" />
+                        <ComboBox
+                            VerticalAlignment="Center"
+                            ItemsSource="{x:Bind ViewModel.ImageDurationUnits}"
+                            SelectedItem="{x:Bind ViewModel.SelectedImageDurationUnit, Mode=TwoWay}"
+                            Style="{StaticResource ComboBoxStyle}" />
                     </StackPanel>
 
                     <!--  Separator  -->
                     <Rectangle
                         Grid.Row="1"
                         Grid.ColumnSpan="2"
-                        Height="2"
-                        HorizontalAlignment="Stretch"
-                        Fill="Gray" />
+                        Style="{StaticResource SeparatorStyle}" />
 
-                    <TextBlock Grid.Row="2" Text="Free layer" />
-                    <StackPanel Grid.Row="2" Grid.Column="1">
-                        <CheckBox Content="Free layer is turned on by default when a new project is created" />
-                    </StackPanel>
+                    <TextBlock x:Uid="Settings_FreeLayer" Grid.Row="2" />
+                    <CheckBox
+                        x:Uid="Settings_FreeLayerIsTurnedOn"
+                        Grid.Row="2"
+                        Grid.Column="1"
+                        IsChecked="{x:Bind ViewModel.IsFreeLayerTurnedOn, Mode=TwoWay}" />
 
-                    <TextBlock Grid.Row="3" Text="Frame rate" />
+                    <TextBlock x:Uid="Settings_FrameRate" Grid.Row="3" />
                     <ComboBox
                         Grid.Row="3"
                         Grid.Column="1"
-                        CornerRadius="5" />
+                        ItemsSource="{x:Bind ViewModel.FrameRates}"
+                        SelectedItem="{x:Bind ViewModel.SelectedFrameRate, Mode=TwoWay}"
+                        Style="{StaticResource ComboBoxStyle}" />
 
-                    <TextBlock Grid.Row="4" Text="Time code" />
+                    <TextBlock x:Uid="Settings_TimeCode" Grid.Row="4" />
                     <ComboBox
                         Grid.Row="4"
                         Grid.Column="1"
-                        CornerRadius="5" />
+                        CornerRadius="5"
+                        ItemsSource="{x:Bind ViewModel.TimeCodes}"
+                        SelectedItem="{x:Bind ViewModel.SelectedTimeCode, Mode=TwoWay}"
+                        Style="{StaticResource ComboBoxStyle}" />
                 </Grid>
             </PivotItem>
 
@@ -165,63 +184,61 @@
                         <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
 
-                    <TextBlock Text="Encode settings" />
+                    <TextBlock x:Uid="Settings_EncodeSettings" />
                     <StackPanel Grid.Column="1">
-                        <CheckBox Content="Speed up hardware encoding" />
-                        <CheckBox Content="Speed up hardware decoding" />
+                        <CheckBox x:Uid="Settings_SpeedUpEncoding" IsChecked="{x:Bind ViewModel.IsHardwareEncodingEnabled}" />
+                        <CheckBox x:Uid="Settings_SpeedUpDecoding" IsChecked="{x:Bind ViewModel.IsHardwareDecodingEnabled}" />
                     </StackPanel>
 
                     <!--  Separator  -->
                     <Rectangle
                         Grid.Row="1"
                         Grid.ColumnSpan="2"
-                        Height="2"
-                        HorizontalAlignment="Stretch"
-                        Fill="Gray" />
+                        Style="{StaticResource SeparatorStyle}" />
 
-                    <TextBlock Grid.Row="2" Text="Interface rendering" />
+                    <TextBlock x:Uid="Settings_InterfaceRendering" Grid.Row="2" />
                     <CheckBox
+                        x:Uid="Settings_RenderInterface"
                         Grid.Row="2"
                         Grid.Column="1"
-                        Content="Render interface with GPU" />
+                        IsChecked="{x:Bind ViewModel.IsRenderWithGpuEnabled}" />
 
                     <!--  Separator  -->
                     <Rectangle
                         Grid.Row="3"
                         Grid.ColumnSpan="2"
-                        Height="2"
-                        HorizontalAlignment="Stretch"
-                        Fill="Gray" />
+                        Style="{StaticResource SeparatorStyle}" />
 
-                    <TextBlock Grid.Row="4" Text="Proxy" />
+                    <TextBlock x:Uid="Settings_Proxy" Grid.Row="4" />
                     <CheckBox
+                        x:Uid="Settings_ProxyModeIsTurnedOn"
                         Grid.Row="4"
                         Grid.Column="1"
-                        Content="Proxy mode is turned on by default when a new project is created" />
+                        IsChecked="{x:Bind ViewModel.IsProxyEnabled}" />
 
-                    <TextBlock Grid.Row="5" Text="Proxy location" />
+                    <TextBlock x:Uid="Settings_ProxyLocation" Grid.Row="5" />
                     <StackPanel
                         Grid.Row="5"
                         Grid.Column="1"
                         Orientation="Horizontal"
                         Spacing="20">
 
-                        <TextBlock VerticalAlignment="Center" Text="Path////" />
-                        <Button Background="Transparent" CornerRadius="5">
+                        <TextBlock VerticalAlignment="Center" Text="{x:Bind ViewModel.ProxySavePath}" />
+                        <Button Command="{x:Bind ViewModel.SelectProxySavePathCommand}" Style="{StaticResource ButtonStyle}">
                             <Button.Content>
                                 <FontIcon FontFamily="{StaticResource MaterialIcons}" Glyph="&#xe2c7;" />
                             </Button.Content>
                         </Button>
                     </StackPanel>
 
-                    <TextBlock Grid.Row="6" Text="Proxy size" />
+                    <TextBlock x:Uid="Settings_ProxySize" Grid.Row="6" />
                     <StackPanel
                         Grid.Row="6"
                         Grid.Column="1"
                         Orientation="Horizontal"
                         Spacing="20">
-                        <TextBlock VerticalAlignment="Center" Text="10.05 MB" />
-                        <Button Background="Transparent" CornerRadius="5">
+                        <TextBlock VerticalAlignment="Center" Text="{x:Bind ViewModel.ProxySize}" />
+                        <Button Command="{x:Bind ViewModel.DeleteProxyCacheCommand}" Style="{StaticResource ButtonStyle}">
                             <Button.Content>
                                 <FontIcon FontFamily="{StaticResource MaterialIcons}" Glyph="&#xe872;" />
                             </Button.Content>

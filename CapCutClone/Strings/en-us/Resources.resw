@@ -153,4 +153,64 @@
   <data name="Settings_Project.Header" xml:space="preserve">
     <value>Project</value>
   </data>
+  <data name="Settings_AutoDeleteCache.Text" xml:space="preserve">
+    <value>Auto delete cache</value>
+  </data>
+  <data name="Settings_CacheManagement.Text" xml:space="preserve">
+    <value>Cache management</value>
+  </data>
+  <data name="Settings_CacheSize.Text" xml:space="preserve">
+    <value>Cache size</value>
+  </data>
+  <data name="Settings_DaysAgo.Text" xml:space="preserve">
+    <value>days ago</value>
+  </data>
+  <data name="Settings_DontDeleteCache.Content" xml:space="preserve">
+    <value>Don`t delete cache files</value>
+  </data>
+  <data name="Settings_SaveTo.Text" xml:space="preserve">
+    <value>Save to</value>
+  </data>
+  <data name="Settings_FrameRate.Text" xml:space="preserve">
+    <value>Frame rate</value>
+  </data>
+  <data name="Settings_FreeLayer.Text" xml:space="preserve">
+    <value>Free layer</value>
+  </data>
+  <data name="Settings_FreeLayerIsTurnedOn.Content" xml:space="preserve">
+    <value>Free layer is turned on by default when a new project is created</value>
+  </data>
+  <data name="Settings_ImageDuration.Text" xml:space="preserve">
+    <value>Image duration</value>
+  </data>
+  <data name="Settings_TimeCode.Text" xml:space="preserve">
+    <value>Time code</value>
+  </data>
+  <data name="Settings_EncodeSettings.Text" xml:space="preserve">
+    <value>Encode settings</value>
+  </data>
+  <data name="Settings_InterfaceRendering.Text" xml:space="preserve">
+    <value>Interface rendering</value>
+  </data>
+  <data name="Settings_Proxy.Text" xml:space="preserve">
+    <value>Proxy</value>
+  </data>
+  <data name="Settings_ProxyLocation.Text" xml:space="preserve">
+    <value>Proxy location</value>
+  </data>
+  <data name="Settings_ProxyModeIsTurnedOn.Content" xml:space="preserve">
+    <value>Proxy mode is turned on by default when a new project is created</value>
+  </data>
+  <data name="Settings_ProxySize.Text" xml:space="preserve">
+    <value>Proxy size</value>
+  </data>
+  <data name="Settings_RenderInterface.Content" xml:space="preserve">
+    <value>Render interface with GPU</value>
+  </data>
+  <data name="Settings_SpeedUpDecoding.Content" xml:space="preserve">
+    <value>Speed up hardware decoding</value>
+  </data>
+  <data name="Settings_SpeedUpEncoding.Content" xml:space="preserve">
+    <value>Speed up hardware encoding</value>
+  </data>
 </root>
