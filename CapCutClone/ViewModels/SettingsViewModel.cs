@@ -11,9 +11,9 @@ namespace CapCutClone.ViewModels
 {
     public class SettingsViewModel : ObservableObject 
     {
-        private readonly LocalSettingsService _settingsService;
+        private readonly ILocalSettingsService _settingsService;
 
-        public SettingsViewModel(LocalSettingsService settingsService) 
+        public SettingsViewModel(ILocalSettingsService settingsService) 
         {
             _settingsService = settingsService;
             LoadFromSetting();
@@ -180,19 +180,20 @@ namespace CapCutClone.ViewModels
 
         private void LoadFromSetting() 
         {
-            ProjectSavePath = _settingsService.ProjectSavePath;
-            CacheManagement = _settingsService.CacheManagement;
-            SelectedAutoDeleteCachePeriod = (int)_settingsService.AutoDeleteCachePeriod;
-            ImageDuration = _settingsService.ImageDuration;
-            SelectedImageDurationUnit = _settingsService.ImageDurationUnit.ToString();
-            IsFreeLayerTurnedOn = _settingsService.IsFreeLayerTurnedOn;
-            SelectedFrameRate = (int)_settingsService.FrameRate;
-            SelectedTimeCode = _settingsService.TimeCode;
-            IsHardwareEncodingEnabled = _settingsService.IsHardwareEncodingEnabled;
-            IsHardwareDecodingEnabled = _settingsService.IsHardwareDecodingEnabled;
-            IsRenderWithGpuEnabled = _settingsService.IsRenderWithGpuEnabled;
-            IsProxyEnabled = _settingsService.IsProxyEnabled;
-            ProxySavePath = _settingsService.ProxySavePath;
+            ProjectSavePath = _settingsService.GetValueOrDefault(nameof(ProjectSavePath), "Path////");
+            CacheManagement = _settingsService.GetValueOrDefault(nameof(CacheManagement), false); //Has two state: Don't delete and Auto delete
+            SelectedAutoDeleteCachePeriod = (int)_settingsService.GetValueOrDefault(nameof(SelectedAutoDeleteCachePeriod), TimePeriod.ThirtyDays);
+            ImageDuration = _settingsService.GetValueOrDefault(nameof(ImageDuration), (uint)180);
+            SelectedImageDurationUnit = _settingsService.GetValueOrDefault(nameof(SelectedImageDurationUnit), DurationUnit.Frame).ToString();
+            IsFreeLayerTurnedOn = _settingsService.GetValueOrDefault(nameof(IsFreeLayerTurnedOn), true);
+            SelectedFrameRate = (int)_settingsService.GetValueOrDefault(nameof(SelectedFrameRate), FrameRate._60FPS);
+            SelectedTimeCode = _settingsService.GetValueOrDefault(nameof(SelectedTimeCode), "HH:MM:SS+frame");
+            IsHardwareEncodingEnabled = _settingsService.GetValueOrDefault(nameof(IsHardwareEncodingEnabled), true);
+            IsHardwareDecodingEnabled = _settingsService.GetValueOrDefault(nameof(IsHardwareDecodingEnabled), true);
+            IsRenderWithGpuEnabled = _settingsService.GetValueOrDefault(nameof(IsRenderWithGpuEnabled), true);
+            IsProxyEnabled = _settingsService. GetValueOrDefault(nameof(IsProxyEnabled), true);
+            ProxySavePath = _settingsService.GetValueOrDefault(nameof(ProxySavePath), "Path////");
+            //SelectedLanguage = GetValueOrDefault(nameof(SelectedLanguage), new LanguageItem("en-US", "English"));
         }
     }
 }
