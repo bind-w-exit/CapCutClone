@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Main_SignIn.Content" xml:space="preserve">
+    <value>Увійти</value>
+  </data>
+  <data name="Main_HelloMsg.Text" xml:space="preserve">
+    <value>Відредагований проект буде збережено автоматично. Почніть створювати власні відео!</value>
+  </data>
+  <data name="Main_NewProject.Text" xml:space="preserve">
+    <value>Новий проєкт</value>
+  </data>
+  <data name="Main_Projects.Text" xml:space="preserve">
+    <value>Проєкти</value>
+  </data>
+  <data name="Main_Settings.Content" xml:space="preserve">
+    <value>Налаштування</value>
+  </data>
+  <data name="Settings_Edit.Header" xml:space="preserve">
+    <value>Редагувати</value>
+  </data>
+  <data name="Settings_Language.Header" xml:space="preserve">
+    <value>Мови</value>
+  </data>
+  <data name="Settings_Perfomance.Header" xml:space="preserve">
+    <value>Продуктивність</value>
+  </data>
+  <data name="Settings_Project.Header" xml:space="preserve">
+    <value>Проєкт</value>
+  </data>
+  <data name="Settings_AutoDeleteCache.Text" xml:space="preserve">
+    <value>Автоматичне видалення кешу</value>
+  </data>
+  <data name="Settings_CacheManagement.Text" xml:space="preserve">
+    <value>Управління кешем</value>
+  </data>
+  <data name="Settings_CacheSize.Text" xml:space="preserve">
+    <value>Розмір кешу</value>
+  </data>
+  <data name="Settings_DaysAgo.Text" xml:space="preserve">
+    <value>днів тому</value>
+  </data>
+  <data name="Settings_DontDeleteCache.Content" xml:space="preserve">
+    <value>Не видаляти файли кешу</value>
+  </data>
+  <data name="Settings_SaveTo.Text" xml:space="preserve">
+    <value>Зберегти до</value>
+  </data>
+  <data name="Settings_FrameRate.Text" xml:space="preserve">
+    <value>Частота кадрів</value>
+  </data>
+  <data name="Settings_FreeLayer.Text" xml:space="preserve">
+    <value>Вільний шар</value>
+  </data>
+  <data name="Settings_FreeLayerIsTurnedOn.Content" xml:space="preserve">
+    <value>Вільний шар увімкнено за замовчуванням, коли створюється новий проєкт</value>
+  </data>
+  <data name="Settings_ImageDuration.Text" xml:space="preserve">
+    <value>Тривалість зображення</value>
+  </data>
+  <data name="Settings_TimeCode.Text" xml:space="preserve">
+    <value>Таймкод</value>
+  </data>
+  <data name="Settings_EncodeSettings.Text" xml:space="preserve">
+    <value>Налаштування кодування</value>
+  </data>
+  <data name="Settings_InterfaceRendering.Text" xml:space="preserve">
+    <value>Рендеринг інтерфейсу</value>
+  </data>
+  <data name="Settings_Proxy.Text" xml:space="preserve">
+    <value>Проксі</value>
+  </data>
+  <data name="Settings_ProxyLocation.Text" xml:space="preserve">
+    <value>Розташування проксі</value>
+  </data>
+  <data name="Settings_ProxyModeIsTurnedOn.Content" xml:space="preserve">
+    <value>Режим проксі вмикається за замовчуванням, коли створюється новий проект</value>
+  </data>
+  <data name="Settings_ProxySize.Text" xml:space="preserve">
+    <value>Розмір проксі</value>
+  </data>
+  <data name="Settings_RenderInterface.Content" xml:space="preserve">
+    <value>Рендерити інтерфейс за допомогою GPU</value>
+  </data>
+  <data name="Settings_SpeedUpDecoding.Content" xml:space="preserve">
+    <value>Пришвидшити апаратне декодування</value>
+  </data>
+  <data name="Settings_SpeedUpEncoding.Content" xml:space="preserve">
+    <value>Пришвидшити апаратне кодування</value>
+  </data>
+</root>

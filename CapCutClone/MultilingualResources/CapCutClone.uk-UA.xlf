@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-US" target-language="uk-UA" original="CAPCUTCLONE/STRINGS/EN-US/RESOURCES.RESW" tool-id="MultilingualAppToolkit" product-name="n/a" product-version="n/a" build-num="n/a">
+    <header>
+      <tool tool-id="MultilingualAppToolkit" tool-name="Multilingual App Toolkit" tool-version="1.0.0.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="CAPCUTCLONE/STRINGS/EN-US/RESOURCES.RESW" datatype="resx">
+        <trans-unit id="AppDisplayName" translate="yes" xml:space="preserve">
+          <source>CapCutClone</source>
+          <target state="new">CapCutClone</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Application display name</note>
+        </trans-unit>
+        <trans-unit id="AppDescription" translate="yes" xml:space="preserve">
+          <source>CapCutClone</source>
+          <target state="new">CapCutClone</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Application description</note>
+        </trans-unit>
+        <trans-unit id="Main_SignIn.Content" translate="yes" xml:space="preserve">
+          <source>Sign In</source>
+          <target state="translated" state-qualifier="tm-suggestion">Увійти</target>
+        </trans-unit>
+        <trans-unit id="Main_HelloMsg.Text" translate="yes" xml:space="preserve">
+          <source>Project edited will be saved automatically. Start creating your own videos!</source>
+          <target state="translated">Відредагований проект буде збережено автоматично. Почніть створювати власні відео!</target>
+        </trans-unit>
+        <trans-unit id="Main_NewProject.Text" translate="yes" xml:space="preserve">
+          <source>New project</source>
+          <target state="translated">Новий проєкт</target>
+        </trans-unit>
+        <trans-unit id="Main_Projects.Text" translate="yes" xml:space="preserve">
+          <source>Projects</source>
+          <target state="translated">Проєкти</target>
+        </trans-unit>
+        <trans-unit id="Main_Settings.Content" translate="yes" xml:space="preserve">
+          <source>Settings</source>
+          <target state="translated">Налаштування</target>
+        </trans-unit>
+        <trans-unit id="Settings_Edit.Header" translate="yes" xml:space="preserve">
+          <source>Edit</source>
+          <target state="translated" state-qualifier="tm-suggestion">Редагувати</target>
+        </trans-unit>
+        <trans-unit id="Settings_Language.Header" translate="yes" xml:space="preserve">
+          <source>Language</source>
+          <target state="translated" state-qualifier="tm-suggestion">Мови</target>
+        </trans-unit>
+        <trans-unit id="Settings_Perfomance.Header" translate="yes" xml:space="preserve">
+          <source>Perfomance</source>
+          <target state="translated">Продуктивність</target>
+        </trans-unit>
+        <trans-unit id="Settings_Project.Header" translate="yes" xml:space="preserve">
+          <source>Project</source>
+          <target state="translated">Проєкт</target>
+        </trans-unit>
+        <trans-unit id="Settings_AutoDeleteCache.Text" translate="yes" xml:space="preserve">
+          <source>Auto delete cache</source>
+          <target state="translated">Автоматичне видалення кешу</target>
+        </trans-unit>
+        <trans-unit id="Settings_CacheManagement.Text" translate="yes" xml:space="preserve">
+          <source>Cache management</source>
+          <target state="translated">Управління кешем</target>
+        </trans-unit>
+        <trans-unit id="Settings_CacheSize.Text" translate="yes" xml:space="preserve">
+          <source>Cache size</source>
+          <target state="translated">Розмір кешу</target>
+        </trans-unit>
+        <trans-unit id="Settings_DaysAgo.Text" translate="yes" xml:space="preserve">
+          <source>days ago</source>
+          <target state="translated">днів тому</target>
+        </trans-unit>
+        <trans-unit id="Settings_DontDeleteCache.Content" translate="yes" xml:space="preserve">
+          <source>Don`t delete cache files</source>
+          <target state="translated">Не видаляти файли кешу</target>
+        </trans-unit>
+        <trans-unit id="Settings_SaveTo.Text" translate="yes" xml:space="preserve">
+          <source>Save to</source>
+          <target state="translated">Зберегти до</target>
+        </trans-unit>
+        <trans-unit id="Settings_FrameRate.Text" translate="yes" xml:space="preserve">
+          <source>Frame rate</source>
+          <target state="translated">Частота кадрів</target>
+        </trans-unit>
+        <trans-unit id="Settings_FreeLayer.Text" translate="yes" xml:space="preserve">
+          <source>Free layer</source>
+          <target state="translated">Вільний шар</target>
+        </trans-unit>
+        <trans-unit id="Settings_FreeLayerIsTurnedOn.Content" translate="yes" xml:space="preserve">
+          <source>Free layer is turned on by default when a new project is created</source>
+          <target state="translated">Вільний шар увімкнено за замовчуванням, коли створюється новий проєкт</target>
+        </trans-unit>
+        <trans-unit id="Settings_ImageDuration.Text" translate="yes" xml:space="preserve">
+          <source>Image duration</source>
+          <target state="translated">Тривалість зображення</target>
+        </trans-unit>
+        <trans-unit id="Settings_TimeCode.Text" translate="yes" xml:space="preserve">
+          <source>Time code</source>
+          <target state="translated">Таймкод</target>
+        </trans-unit>
+        <trans-unit id="Settings_EncodeSettings.Text" translate="yes" xml:space="preserve">
+          <source>Encode settings</source>
+          <target state="translated">Налаштування кодування</target>
+        </trans-unit>
+        <trans-unit id="Settings_InterfaceRendering.Text" translate="yes" xml:space="preserve">
+          <source>Interface rendering</source>
+          <target state="translated">Рендеринг інтерфейсу</target>
+        </trans-unit>
+        <trans-unit id="Settings_Proxy.Text" translate="yes" xml:space="preserve">
+          <source>Proxy</source>
+          <target state="translated">Проксі</target>
+        </trans-unit>
+        <trans-unit id="Settings_ProxyLocation.Text" translate="yes" xml:space="preserve">
+          <source>Proxy location</source>
+          <target state="translated">Розташування проксі</target>
+        </trans-unit>
+        <trans-unit id="Settings_ProxyModeIsTurnedOn.Content" translate="yes" xml:space="preserve">
+          <source>Proxy mode is turned on by default when a new project is created</source>
+          <target state="translated">Режим проксі вмикається за замовчуванням, коли створюється новий проект</target>
+        </trans-unit>
+        <trans-unit id="Settings_ProxySize.Text" translate="yes" xml:space="preserve">
+          <source>Proxy size</source>
+          <target state="translated">Розмір проксі</target>
+        </trans-unit>
+        <trans-unit id="Settings_RenderInterface.Content" translate="yes" xml:space="preserve">
+          <source>Render interface with GPU</source>
+          <target state="translated">Рендерити інтерфейс за допомогою GPU</target>
+        </trans-unit>
+        <trans-unit id="Settings_SpeedUpDecoding.Content" translate="yes" xml:space="preserve">
+          <source>Speed up hardware decoding</source>
+          <target state="translated">Пришвидшити апаратне декодування</target>
+        </trans-unit>
+        <trans-unit id="Settings_SpeedUpEncoding.Content" translate="yes" xml:space="preserve">
+          <source>Speed up hardware encoding</source>
+          <target state="translated">Пришвидшити апаратне кодування</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>
