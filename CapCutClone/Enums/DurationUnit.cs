@@ -1,4 +1,5 @@
-﻿namespace CapCutClone.Enums {
+﻿namespace CapCutClone.Enums 
+{
     public enum DurationUnit 
     {
         s,

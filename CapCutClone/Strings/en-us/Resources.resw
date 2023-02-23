@@ -127,7 +127,6 @@
   </data>
   <data name="Main_SignIn.Content" xml:space="preserve">
     <value>Sign In</value>
-    <comment>Page title for MainPage</comment>
   </data>
   <data name="Main_HelloMsg.Text" xml:space="preserve">
     <value>Project edited will be saved automatically. Start creating your own videos!</value>

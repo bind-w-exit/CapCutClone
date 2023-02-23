@@ -11,9 +11,9 @@ namespace CapCutClone.ViewModels
 {
     public class SettingsViewModel : ObservableObject 
     {
-        private readonly SettingsService _settingsService;
+        private readonly LocalSettingsService _settingsService;
 
-        public SettingsViewModel(SettingsService settingsService) 
+        public SettingsViewModel(LocalSettingsService settingsService) 
         {
             _settingsService = settingsService;
             LoadFromSetting();
@@ -36,11 +36,11 @@ namespace CapCutClone.ViewModels
             set => SetProperty(ref projectSavePath, value);
         }
 
-        private bool cacheManegment;
-        public bool CacheManegment 
+        private bool cacheManagement;
+        public bool CacheManagement 
         {
-            get => cacheManegment;
-            set => SetProperty(ref cacheManegment, value);
+            get => cacheManagement;
+            set => SetProperty(ref cacheManagement, value);
         }
 
         public List<int> AutoDeleteCachePeriods 
@@ -181,7 +181,7 @@ namespace CapCutClone.ViewModels
         private void LoadFromSetting() 
         {
             ProjectSavePath = _settingsService.ProjectSavePath;
-            CacheManegment = _settingsService.CacheManegment;
+            CacheManagement = _settingsService.CacheManagement;
             SelectedAutoDeleteCachePeriod = (int)_settingsService.AutoDeleteCachePeriod;
             ImageDuration = _settingsService.ImageDuration;
             SelectedImageDurationUnit = _settingsService.ImageDurationUnit.ToString();

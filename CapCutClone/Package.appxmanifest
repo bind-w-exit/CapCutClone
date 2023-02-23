@@ -4,15 +4,14 @@
   xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
   xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest"
   xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10"
-  xmlns:genTemplate="http://schemas.microsoft.com/appx/developer/templatestudio"
-  IgnorableNamespaces="uap mp genTemplate">
+  IgnorableNamespaces="uap mp">
 
   <Identity
-    Name="461D19F2-6B92-4DA2-B57B-14501B187ADD"
+    Name="75783efd-8278-4799-b69e-006dacbba635"
     Publisher="CN=12And"
-    Version="0.1.0.0" />
+    Version="1.0.0.0" />
 
-  <mp:PhoneIdentity PhoneProductId="461D19F2-6B92-4DA2-B57B-14501B187ADD" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
+  <mp:PhoneIdentity PhoneProductId="75783efd-8278-4799-b69e-006dacbba635" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
     <DisplayName>CapCutClone</DisplayName>
@@ -41,21 +40,10 @@
         <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png"/>
         <uap:SplashScreen Image="Assets\SplashScreen.png" />
       </uap:VisualElements>
-
-      <Extensions>
-      </Extensions>
     </Application>
   </Applications>
 
   <Capabilities>
     <Capability Name="internetClient" />
   </Capabilities>
-
-  <genTemplate:Metadata>
-    <genTemplate:Item Name="generator" Value="Template Studio"/>
-    <genTemplate:Item Name="wizardVersion" Version="v5.2" />
-    <genTemplate:Item Name="projectType" Value="Blank" />
-    <genTemplate:Item Name="framework" Value="MVVMToolkit" />
-    <genTemplate:Item Name="platform" Value="Uwp" />
-  </genTemplate:Metadata>
 </Package>

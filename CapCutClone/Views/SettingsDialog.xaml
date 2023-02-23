@@ -53,8 +53,8 @@
                         Grid.Row="1"
                         TextWrapping="Wrap" />
                     <StackPanel Grid.Row="1" Grid.Column="1">
-                        <RadioButton x:Uid="Settings_DontDeleteCache" IsChecked="{x:Bind ViewModel.CacheManegment, Mode=TwoWay, Converter={StaticResource InvertedBoolConverter}}" />
-                        <RadioButton IsChecked="{x:Bind ViewModel.CacheManegment, Mode=TwoWay}">
+                        <RadioButton x:Uid="Settings_DontDeleteCache" IsChecked="{x:Bind ViewModel.CacheManagement, Mode=TwoWay, Converter={StaticResource InvertedBoolConverter}}" />
+                        <RadioButton IsChecked="{x:Bind ViewModel.CacheManagement, Mode=TwoWay}">
                             <RadioButton.Content>
                                 <StackPanel Orientation="Horizontal" Spacing="20">
                                     <TextBlock

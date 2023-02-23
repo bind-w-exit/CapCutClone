@@ -26,12 +26,12 @@ namespace CapCutClone.ViewModels
 
         private void OpenSettingsDialog()
         {
-
+            //TODO: Write implementation for OpenSettingsDialog
         }
 
         private void OpenVideoEditorWindow()
         {
-
+            //TODO: Write implementation for OpenVideoEditorWindow
         }
     }
 }

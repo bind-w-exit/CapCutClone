@@ -5,11 +5,11 @@ using Windows.Storage;
 
 namespace CapCutClone.Services
 {
-    public class SettingsService
+    public class LocalSettingsService
     {
         private readonly ApplicationDataContainer _localSettings;
 
-        public SettingsService()
+        public LocalSettingsService()
         {
             _localSettings = ApplicationData.Current.LocalSettings;
             Load();
@@ -21,7 +21,7 @@ namespace CapCutClone.Services
         /// Has two state:
         /// Don't delete and Auto delete
         /// </summary>
-        public bool CacheManegment { get; set; }
+        public bool CacheManagement { get; set; }
 
         public TimePeriod AutoDeleteCachePeriod { get; set; }
 
@@ -54,7 +54,7 @@ namespace CapCutClone.Services
         public void Load()
         {
             ProjectSavePath = GetValueOrDefault(nameof(ProjectSavePath), "Path////");
-            CacheManegment = GetValueOrDefault(nameof(CacheManegment), false);
+            CacheManagement = GetValueOrDefault(nameof(CacheManagement), false);
             AutoDeleteCachePeriod = GetValueOrDefault(nameof(AutoDeleteCachePeriod), TimePeriod.ThirtyDays);
             ImageDuration = GetValueOrDefault(nameof(ImageDuration), (uint)180);
             ImageDurationUnit = GetValueOrDefault(nameof(ImageDurationUnit), DurationUnit.Frame);
@@ -74,7 +74,7 @@ namespace CapCutClone.Services
         public void Save()
         {
             _localSettings.Values[nameof(ProjectSavePath)] = ProjectSavePath;
-            _localSettings.Values[nameof(CacheManegment)] = CacheManegment;
+            _localSettings.Values[nameof(CacheManagement)] = CacheManagement;
             _localSettings.Values[nameof(AutoDeleteCachePeriod)] = AutoDeleteCachePeriod;
             _localSettings.Values[nameof(ImageDuration)] = ImageDuration;
             _localSettings.Values[nameof(IsFreeLayerTurnedOn)] = IsFreeLayerTurnedOn;

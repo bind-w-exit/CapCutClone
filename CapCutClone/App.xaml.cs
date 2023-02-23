@@ -20,7 +20,6 @@ namespace CapCutClone
         public App()
         {
             InitializeComponent();
-            UnhandledException += OnAppUnhandledException;
             Suspending += OnSuspending;
         }
 
@@ -48,12 +47,12 @@ namespace CapCutClone
                 // Register services
                 Ioc.Default.ConfigureServices(
                     new ServiceCollection()
-                    .AddSingleton<SettingsService>() //Services
+                    .AddSingleton<LocalSettingsService>() //Services
                     .AddTransient<MainViewModel>() //ViewModels
                     .AddTransient<SettingsViewModel>()
                     .BuildServiceProvider());
             }
-            
+
             if (e.PrelaunchActivated == false)
             {
                 if (rootFrame.Content == null)
@@ -97,12 +96,6 @@ namespace CapCutClone
             var deferral = e.SuspendingOperation.GetDeferral();
             //TODO: Save application state and stop any background activity
             deferral.Complete();
-        }
-
-        private void OnAppUnhandledException(object sender, Windows.UI.Xaml.UnhandledExceptionEventArgs e)
-        {
-            // TODO: Please log and handle the exception as appropriate to your scenario
-            // For more info see https://docs.microsoft.com/uwp/api/windows.ui.xaml.application.unhandledexception
         }
     }
 }
