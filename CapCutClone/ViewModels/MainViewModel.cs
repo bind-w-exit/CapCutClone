@@ -1,4 +1,6 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
+﻿using CapCutClone.Models;
+using CapCutClone.Services;
+using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
@@ -7,8 +9,10 @@ namespace CapCutClone.ViewModels
 {
     public class MainViewModel : ObservableObject
     {
-        public MainViewModel()
+        public MainViewModel(ILocalizationService localizationService, ILocalSettingsService localSettingsService)
         {
+            var lang = localSettingsService.GetValueOrDefault("SelectedLanguage", new LanguageItem("en-US", "English"));
+            localizationService.SetLanguage(lang);
             SelectedViewType = ViewTypes[0];
             OpenSettingsDialogCommand = new RelayCommand(OpenSettingsDialog);
             OpenVideoEditorWindowCommand = new RelayCommand(OpenVideoEditorWindow);

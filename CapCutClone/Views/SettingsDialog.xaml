@@ -248,7 +248,7 @@
             </PivotItem>
 
             <PivotItem x:Uid="Settings_Language" Margin="15">
-                <ListView />
+                <ListView ItemsSource="{x:Bind ViewModel.Languages}" SelectedItem="{x:Bind ViewModel.SelectedLanguage}" />
             </PivotItem>
         </Pivot>
     </Grid>

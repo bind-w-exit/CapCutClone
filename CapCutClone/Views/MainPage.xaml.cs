@@ -8,9 +8,9 @@ namespace CapCutClone.Views
     public sealed partial class MainPage : Page
     {
         public MainPage()
-        {
-            InitializeComponent();
+        {         
             DataContext = Ioc.Default.GetRequiredService<MainViewModel>();
+            InitializeComponent();
         }
 
         public MainViewModel ViewModel => (MainViewModel)DataContext;

@@ -1,4 +1,5 @@
 ﻿using CapCutClone.Enums;
+using CapCutClone.Models;
 using CapCutClone.Services;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
@@ -13,7 +14,7 @@ namespace CapCutClone.ViewModels
     {
         private readonly ILocalSettingsService _settingsService;
 
-        public SettingsViewModel(ILocalSettingsService settingsService) 
+        public SettingsViewModel(ILocalSettingsService settingsService, ILocalizationService localizationService) 
         {
             _settingsService = settingsService;
             LoadFromSetting();
@@ -27,6 +28,11 @@ namespace CapCutClone.ViewModels
             });
             SelectProxySavePathCommand = new RelayCommand(SelectProxySavePath);
             DeleteProxyCacheCommand = new RelayCommand(DeleteProxyCache);
+
+            foreach (LanguageItem lang in localizationService.Languages)
+            {
+                Languages.Add(lang.DisplayName);
+            }
         }
 
         private string projectSavePath;
@@ -145,6 +151,11 @@ namespace CapCutClone.ViewModels
         //TODO: Get CacheSize
         public string ProxySize { get; } = "20.25MB";
 
+        public List<string> Languages { get; } = new List<string>();
+
+        public string SelectedLanguage { get; set; }
+
+
         public ICommand SelectProjectSavePathCommand { get; }
 
         public ICommand DeleteProjectCacheCommand { get; }
@@ -157,7 +168,7 @@ namespace CapCutClone.ViewModels
 
         public ICommand DeleteProxyCacheCommand { get; }
 
-
+        
         private void SelectProjectSavePath() 
         {
             //TODO: Write implementation for SelectProjectSavePath
@@ -193,7 +204,7 @@ namespace CapCutClone.ViewModels
             IsRenderWithGpuEnabled = _settingsService.GetValueOrDefault(nameof(IsRenderWithGpuEnabled), true);
             IsProxyEnabled = _settingsService. GetValueOrDefault(nameof(IsProxyEnabled), true);
             ProxySavePath = _settingsService.GetValueOrDefault(nameof(ProxySavePath), "Path////");
-            //SelectedLanguage = GetValueOrDefault(nameof(SelectedLanguage), new LanguageItem("en-US", "English"));
+            SelectedLanguage = _settingsService.GetValueOrDefault(nameof(SelectedLanguage), new LanguageItem("en-US", "English").DisplayName);
         }
     }
 }

@@ -132,7 +132,9 @@
     <Compile Include="Helpers\ResourceExtensions.cs" />
     <Compile Include="Models\LanguageItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\ILocalizationService.cs" />
     <Compile Include="Services\ILocalSettingsService.cs" />
+    <Compile Include="Services\LocalizationService.cs" />
     <Compile Include="Services\LocalSettingsService.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\SettingsViewModel.cs" />
@@ -225,13 +227,16 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <PRIResource Include="Strings\en-us\Resources.resw" />
+    <PRIResource Include="Strings\en-US\Resources.resw" />
   </ItemGroup>
   <ItemGroup>
     <PRIResource Include="Strings\uk-UA\Resources.resw" />
   </ItemGroup>
   <ItemGroup>
     <XliffResource Include="MultilingualResources\CapCutClone.uk-UA.xlf" />
+  </ItemGroup>
+  <ItemGroup>
+    <PRIResource Include="Strings\LanguageList.resw" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
