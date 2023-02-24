@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Input;
+using Windows.UI.Xaml;
 
 namespace CapCutClone.ViewModels
 {
@@ -14,8 +15,14 @@ namespace CapCutClone.ViewModels
     {
         private readonly ILocalSettingsService _settingsService;
 
-        public SettingsViewModel(ILocalSettingsService settingsService, ILocalizationService localizationService) 
+        public SettingsViewModel(ILocalSettingsService settingsService, ILocalizationService localizationService, IThemeSelectorService themeSelectorService) 
         {
+            Theme = themeSelectorService.CurrentTheme;
+            themeSelectorService.ThemeChanged += (s, e) =>
+            {
+                Theme = themeSelectorService.CurrentTheme;
+            };
+
             _settingsService = settingsService;
             LoadFromSetting();
             SelectProjectSavePathCommand = new RelayCommand(SelectProjectSavePath);
@@ -33,6 +40,13 @@ namespace CapCutClone.ViewModels
             {
                 Languages.Add(lang.DisplayName);
             }
+        }
+
+        private ElementTheme theme;
+        public ElementTheme Theme
+        {
+            get => theme;
+            set => SetProperty(ref theme, value);
         }
 
         private string projectSavePath;

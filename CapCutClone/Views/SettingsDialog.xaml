@@ -11,6 +11,7 @@
     CornerRadius="10"
     PrimaryButtonClick="ContentDialog_PrimaryButtonClick"
     PrimaryButtonText="Save"
+    RequestedTheme="{x:Bind ViewModel.Theme}"
     SecondaryButtonClick="ContentDialog_SecondaryButtonClick"
     SecondaryButtonText="Cancel"
     mc:Ignorable="d">

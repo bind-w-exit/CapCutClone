@@ -48,7 +48,8 @@ namespace CapCutClone
                 Ioc.Default.ConfigureServices(
                     new ServiceCollection()
                     .AddSingleton<ILocalSettingsService, LocalSettingsService>() //Services
-                    .AddSingleton<ILocalizationService, LocalizationService>() //Services
+                    .AddSingleton<ILocalizationService, LocalizationService>()
+                    .AddSingleton<IThemeSelectorService, ThemeSelectorService>()
                     .AddTransient<MainViewModel>() //ViewModels
                     .AddTransient<SettingsViewModel>()
                     .BuildServiceProvider());
