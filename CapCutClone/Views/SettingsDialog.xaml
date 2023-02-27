@@ -5,14 +5,14 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:helpers="using:CapCutClone.Helpers"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:models="using:CapCutClone.Models"
     xmlns:viewmodels="using:CapCutClone.ViewModels"
     Title="Settings"
     d:DataContext="{d:DesignInstance Type=viewmodels:SettingsViewModel}"
     CornerRadius="10"
-    PrimaryButtonClick="ContentDialog_PrimaryButtonClick"
+    PrimaryButtonCommand="{x:Bind ViewModel.SaveSettingsCommand}"
     PrimaryButtonText="Save"
     RequestedTheme="{x:Bind ViewModel.Theme}"
-    SecondaryButtonClick="ContentDialog_SecondaryButtonClick"
     SecondaryButtonText="Cancel"
     mc:Ignorable="d">
 
@@ -54,7 +54,7 @@
                         Grid.Row="1"
                         TextWrapping="Wrap" />
                     <StackPanel Grid.Row="1" Grid.Column="1">
-                        <RadioButton x:Uid="Settings_DontDeleteCache" IsChecked="{x:Bind ViewModel.CacheManagement, Mode=TwoWay, Converter={StaticResource InvertedBoolConverter}}" />
+                        <RadioButton x:Uid="Settings_DontDeleteCache" IsChecked="{x:Bind ViewModel.CacheManagement, Converter={StaticResource InvertedBoolConverter}}" />
                         <RadioButton IsChecked="{x:Bind ViewModel.CacheManagement, Mode=TwoWay}">
                             <RadioButton.Content>
                                 <StackPanel Orientation="Horizontal" Spacing="20">
@@ -81,7 +81,7 @@
                         Grid.Column="1"
                         Orientation="Horizontal"
                         Spacing="20">
-                        <TextBlock VerticalAlignment="Center" Text="{x:Bind ViewModel.CacheSize}" />
+                        <TextBlock VerticalAlignment="Center" Text="{x:Bind ViewModel.CacheSize, Mode=OneWay}" />
                         <Button Command="{x:Bind ViewModel.DeleteProjectCacheCommand}" Style="{StaticResource ButtonStyle}">
                             <Button.Content>
                                 <FontIcon FontFamily="{StaticResource MaterialIcons}" Glyph="&#xe872;" />
@@ -187,8 +187,8 @@
 
                     <TextBlock x:Uid="Settings_EncodeSettings" />
                     <StackPanel Grid.Column="1">
-                        <CheckBox x:Uid="Settings_SpeedUpEncoding" IsChecked="{x:Bind ViewModel.IsHardwareEncodingEnabled}" />
-                        <CheckBox x:Uid="Settings_SpeedUpDecoding" IsChecked="{x:Bind ViewModel.IsHardwareDecodingEnabled}" />
+                        <CheckBox x:Uid="Settings_SpeedUpEncoding" IsChecked="{x:Bind ViewModel.IsHardwareEncodingEnabled, Mode=TwoWay}" />
+                        <CheckBox x:Uid="Settings_SpeedUpDecoding" IsChecked="{x:Bind ViewModel.IsHardwareDecodingEnabled, Mode=TwoWay}" />
                     </StackPanel>
 
                     <!--  Separator  -->
@@ -202,7 +202,7 @@
                         x:Uid="Settings_RenderInterface"
                         Grid.Row="2"
                         Grid.Column="1"
-                        IsChecked="{x:Bind ViewModel.IsRenderWithGpuEnabled}" />
+                        IsChecked="{x:Bind ViewModel.IsRenderWithGpuEnabled, Mode=TwoWay}" />
 
                     <!--  Separator  -->
                     <Rectangle
@@ -215,7 +215,7 @@
                         x:Uid="Settings_ProxyModeIsTurnedOn"
                         Grid.Row="4"
                         Grid.Column="1"
-                        IsChecked="{x:Bind ViewModel.IsProxyEnabled}" />
+                        IsChecked="{x:Bind ViewModel.IsProxyEnabled, Mode=TwoWay}" />
 
                     <TextBlock x:Uid="Settings_ProxyLocation" Grid.Row="5" />
                     <StackPanel
@@ -224,7 +224,7 @@
                         Orientation="Horizontal"
                         Spacing="20">
 
-                        <TextBlock VerticalAlignment="Center" Text="{x:Bind ViewModel.ProxySavePath}" />
+                        <TextBlock VerticalAlignment="Center" Text="{x:Bind ViewModel.ProxySavePath, Mode=OneWay}" />
                         <Button Command="{x:Bind ViewModel.SelectProxySavePathCommand}" Style="{StaticResource ButtonStyle}">
                             <Button.Content>
                                 <FontIcon FontFamily="{StaticResource MaterialIcons}" Glyph="&#xe2c7;" />
@@ -238,7 +238,7 @@
                         Grid.Column="1"
                         Orientation="Horizontal"
                         Spacing="20">
-                        <TextBlock VerticalAlignment="Center" Text="{x:Bind ViewModel.ProxySize}" />
+                        <TextBlock VerticalAlignment="Center" Text="{x:Bind ViewModel.ProxySize, Mode=OneWay}" />
                         <Button Command="{x:Bind ViewModel.DeleteProxyCacheCommand}" Style="{StaticResource ButtonStyle}">
                             <Button.Content>
                                 <FontIcon FontFamily="{StaticResource MaterialIcons}" Glyph="&#xe872;" />
@@ -249,7 +249,13 @@
             </PivotItem>
 
             <PivotItem x:Uid="Settings_Language" Margin="15">
-                <ListView ItemsSource="{x:Bind ViewModel.Languages}" SelectedItem="{x:Bind ViewModel.SelectedLanguage}" />
+                <ListView ItemsSource="{x:Bind ViewModel.Languages, Mode=OneWay}" SelectedItem="{x:Bind ViewModel.SelectedLanguage, Mode=TwoWay}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate x:DataType="models:LanguageItem">
+                            <TextBlock Text="{x:Bind DisplayName}" />
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
             </PivotItem>
         </Pivot>
     </Grid>

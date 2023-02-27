@@ -1,4 +1,6 @@
-﻿namespace CapCutClone.Services
+﻿using System.Threading.Tasks;
+
+namespace CapCutClone.Services
 {
     public interface ILocalSettingsService
     {

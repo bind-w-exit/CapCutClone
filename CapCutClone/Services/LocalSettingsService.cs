@@ -1,4 +1,6 @@
-﻿using Windows.Storage;
+﻿using CapCutClone.Helpers;
+using System.Threading.Tasks;
+using Windows.Storage;
 
 namespace CapCutClone.Services
 {
@@ -6,17 +8,17 @@ namespace CapCutClone.Services
     {
         public T GetValueOrDefault<T>(string key, T defaultValue)
         {
-            if (ApplicationData.Current.LocalSettings.Values.ContainsKey(key))
+            if (ApplicationData.Current.LocalSettings.Values.TryGetValue(key, out var obj))
             {
-                return (T)ApplicationData.Current.LocalSettings.Values[key];
+                return Json.ToObject<T>((string)obj);
             }
-            
+
             return defaultValue;
         }
 
         public void Save<T>(string key, T value)
         {
-            
+            ApplicationData.Current.LocalSettings.Values[key] = Json.Stringify(value);
         }
     }
 }

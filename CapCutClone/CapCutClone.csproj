@@ -129,6 +129,7 @@
     <Compile Include="Enums\FrameRate.cs" />
     <Compile Include="Enums\TimePeriod.cs" />
     <Compile Include="Helpers\InvertedBoolConverter.cs" />
+    <Compile Include="Helpers\Json.cs" />
     <Compile Include="Helpers\ResourceExtensions.cs" />
     <Compile Include="Models\LanguageItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -177,6 +178,9 @@
     </PackageReference>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
       <Version>6.2.14</Version>
+    </PackageReference>
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>13.0.2</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>

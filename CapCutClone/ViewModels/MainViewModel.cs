@@ -12,7 +12,7 @@ namespace CapCutClone.ViewModels
     {
         public MainViewModel(ILocalizationService localizationService, ILocalSettingsService localSettingsService, IThemeSelectorService themeSelectorService)
         {
-            var lang = localSettingsService.GetValueOrDefault("SelectedLanguage", new LanguageItem("en-US", "English"));
+            LanguageItem lang = localSettingsService.GetValueOrDefault("SelectedLanguage", new LanguageItem("en-US", "English"));
             localizationService.SetLanguage(lang);
 
             Theme = themeSelectorService.CurrentTheme;

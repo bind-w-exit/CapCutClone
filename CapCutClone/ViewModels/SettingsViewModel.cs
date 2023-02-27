@@ -6,6 +6,7 @@ using CommunityToolkit.Mvvm.Input;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using Windows.UI.Xaml;
 
@@ -35,11 +36,9 @@ namespace CapCutClone.ViewModels
             });
             SelectProxySavePathCommand = new RelayCommand(SelectProxySavePath);
             DeleteProxyCacheCommand = new RelayCommand(DeleteProxyCache);
-
-            foreach (LanguageItem lang in localizationService.Languages)
-            {
-                Languages.Add(lang.DisplayName);
-            }
+            SaveSettingsCommand = new RelayCommand(SaveToSettings);
+            Languages = localizationService.Languages;
+            SelectedLanguage = localizationService.GetCurrentLanguageItem();
         }
 
         private ElementTheme theme;
@@ -165,9 +164,9 @@ namespace CapCutClone.ViewModels
         //TODO: Get CacheSize
         public string ProxySize { get; } = "20.25MB";
 
-        public List<string> Languages { get; } = new List<string>();
+        public List<LanguageItem> Languages { get; } = new List<LanguageItem>();
 
-        public string SelectedLanguage { get; set; }
+        public LanguageItem SelectedLanguage { get; set; }
 
 
         public ICommand SelectProjectSavePathCommand { get; }
@@ -182,7 +181,8 @@ namespace CapCutClone.ViewModels
 
         public ICommand DeleteProxyCacheCommand { get; }
 
-        
+        public ICommand SaveSettingsCommand { get; }
+
         private void SelectProjectSavePath() 
         {
             //TODO: Write implementation for SelectProjectSavePath
@@ -203,7 +203,7 @@ namespace CapCutClone.ViewModels
             //TODO: Write implementation for DeleteProxyCache
         }
 
-        private void LoadFromSetting() 
+        private void LoadFromSetting()
         {
             ProjectSavePath = _settingsService.GetValueOrDefault(nameof(ProjectSavePath), "Path////");
             CacheManagement = _settingsService.GetValueOrDefault(nameof(CacheManagement), false); //Has two state: Don't delete and Auto delete
@@ -216,9 +216,25 @@ namespace CapCutClone.ViewModels
             IsHardwareEncodingEnabled = _settingsService.GetValueOrDefault(nameof(IsHardwareEncodingEnabled), true);
             IsHardwareDecodingEnabled = _settingsService.GetValueOrDefault(nameof(IsHardwareDecodingEnabled), true);
             IsRenderWithGpuEnabled = _settingsService.GetValueOrDefault(nameof(IsRenderWithGpuEnabled), true);
-            IsProxyEnabled = _settingsService. GetValueOrDefault(nameof(IsProxyEnabled), true);
+            IsProxyEnabled = _settingsService.GetValueOrDefault(nameof(IsProxyEnabled), true);
             ProxySavePath = _settingsService.GetValueOrDefault(nameof(ProxySavePath), "Path////");
-            SelectedLanguage = _settingsService.GetValueOrDefault(nameof(SelectedLanguage), new LanguageItem("en-US", "English").DisplayName);
+        }
+
+        private void SaveToSettings()
+        {
+            _settingsService.Save(nameof(ProjectSavePath), ProjectSavePath);
+            _settingsService.Save(nameof(CacheManagement), CacheManagement);
+            _settingsService.Save(nameof(SelectedAutoDeleteCachePeriod), SelectedAutoDeleteCachePeriod);
+            _settingsService.Save(nameof(ImageDuration), ImageDuration);
+            _settingsService.Save(nameof(SelectedImageDurationUnit), SelectedImageDurationUnit);
+            _settingsService.Save(nameof(IsFreeLayerTurnedOn), IsFreeLayerTurnedOn);
+            _settingsService.Save(nameof(SelectedFrameRate), SelectedFrameRate);
+            _settingsService.Save(nameof(SelectedTimeCode), SelectedTimeCode);
+            _settingsService.Save(nameof(IsHardwareEncodingEnabled), IsHardwareEncodingEnabled);
+            _settingsService.Save(nameof(IsRenderWithGpuEnabled), IsRenderWithGpuEnabled);
+            _settingsService.Save(nameof(IsProxyEnabled), IsProxyEnabled);
+            _settingsService.Save(nameof(ProxySavePath), ProxySavePath);
+            _settingsService.Save(nameof(SelectedLanguage), SelectedLanguage);
         }
     }
 }
