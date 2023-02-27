@@ -7,13 +7,12 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:models="using:CapCutClone.Models"
     xmlns:viewmodels="using:CapCutClone.ViewModels"
-    Title="Settings"
+    x:Uid="Settings_Dialog"
     d:DataContext="{d:DesignInstance Type=viewmodels:SettingsViewModel}"
     CornerRadius="10"
     PrimaryButtonCommand="{x:Bind ViewModel.SaveSettingsCommand}"
-    PrimaryButtonText="Save"
+    PrimaryButtonStyle="{ThemeResource AccentButtonStyle}"
     RequestedTheme="{x:Bind ViewModel.Theme}"
-    SecondaryButtonText="Cancel"
     mc:Ignorable="d">
 
     <ContentDialog.Resources>
@@ -21,7 +20,7 @@
     </ContentDialog.Resources>
 
     <Grid>
-        <Pivot>
+        <Pivot IsHeaderItemsCarouselEnabled="False">
 
             <PivotItem x:Uid="Settings_Project" Margin="15">
                 <Grid>
@@ -42,7 +41,7 @@
                         Spacing="20">
 
                         <TextBlock Text="{x:Bind ViewModel.ProjectSavePath}" />
-                        <Button Command="{x:Bind ViewModel.SelectProjectSavePathCommand}" Style="{StaticResource ButtonStyle}">
+                        <Button Command="{x:Bind ViewModel.SelectProjectSavePathCommand}" Style="{StaticResource IconButtonStyle}">
                             <Button.Content>
                                 <FontIcon FontFamily="{StaticResource MaterialIcons}" Glyph="&#xe2c7;" />
                             </Button.Content>
@@ -82,7 +81,7 @@
                         Orientation="Horizontal"
                         Spacing="20">
                         <TextBlock VerticalAlignment="Center" Text="{x:Bind ViewModel.CacheSize, Mode=OneWay}" />
-                        <Button Command="{x:Bind ViewModel.DeleteProjectCacheCommand}" Style="{StaticResource ButtonStyle}">
+                        <Button Command="{x:Bind ViewModel.DeleteProjectCacheCommand}" Style="{StaticResource IconButtonStyle}">
                             <Button.Content>
                                 <FontIcon FontFamily="{StaticResource MaterialIcons}" Glyph="&#xe872;" />
                             </Button.Content>
@@ -225,7 +224,7 @@
                         Spacing="20">
 
                         <TextBlock VerticalAlignment="Center" Text="{x:Bind ViewModel.ProxySavePath, Mode=OneWay}" />
-                        <Button Command="{x:Bind ViewModel.SelectProxySavePathCommand}" Style="{StaticResource ButtonStyle}">
+                        <Button Command="{x:Bind ViewModel.SelectProxySavePathCommand}" Style="{StaticResource IconButtonStyle}">
                             <Button.Content>
                                 <FontIcon FontFamily="{StaticResource MaterialIcons}" Glyph="&#xe2c7;" />
                             </Button.Content>
@@ -239,7 +238,7 @@
                         Orientation="Horizontal"
                         Spacing="20">
                         <TextBlock VerticalAlignment="Center" Text="{x:Bind ViewModel.ProxySize, Mode=OneWay}" />
-                        <Button Command="{x:Bind ViewModel.DeleteProxyCacheCommand}" Style="{StaticResource ButtonStyle}">
+                        <Button Command="{x:Bind ViewModel.DeleteProxyCacheCommand}" Style="{StaticResource IconButtonStyle}">
                             <Button.Content>
                                 <FontIcon FontFamily="{StaticResource MaterialIcons}" Glyph="&#xe872;" />
                             </Button.Content>

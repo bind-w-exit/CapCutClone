@@ -26,10 +26,11 @@ namespace CapCutClone.Services
 
         public void SetLanguage(LanguageItem languageItem)
         {
+            
             if (Languages.Any(fruit => fruit.Tag == languageItem.Tag))
             {
-                _currentLanguageItem = languageItem;
-
+                //_currentLanguageItem = languageItem;
+                _currentLanguageItem = Languages.Find(lang => lang.Tag == languageItem.Tag);
                 Windows.Globalization.ApplicationLanguages.PrimaryLanguageOverride = languageItem.Tag;
                 _resourceContext.QualifierValues["Language"] = languageItem.Tag;
             }

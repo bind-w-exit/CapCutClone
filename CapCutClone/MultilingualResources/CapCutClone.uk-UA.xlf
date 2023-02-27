@@ -132,6 +132,18 @@
           <source>Speed up hardware encoding</source>
           <target state="translated">Пришвидшити апаратне кодування</target>
         </trans-unit>
+        <trans-unit id="Settings_Dialog.PrimaryButtonText" translate="yes" xml:space="preserve">
+          <source>Save</source>
+          <target state="translated">Зберегти</target>
+        </trans-unit>
+        <trans-unit id="Settings_Dialog.SecondaryButtonText" translate="yes" xml:space="preserve">
+          <source>Cancel</source>
+          <target state="translated">Скасувати</target>
+        </trans-unit>
+        <trans-unit id="Settings_Dialog.Title" translate="yes" xml:space="preserve">
+          <source>Settings</source>
+          <target state="translated">Налаштування</target>
+        </trans-unit>
       </group>
     </body>
   </file>

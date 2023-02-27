@@ -99,4 +99,13 @@
   <data name="Settings_SpeedUpEncoding.Content" xml:space="preserve">
     <value>Пришвидшити апаратне кодування</value>
   </data>
+  <data name="Settings_Dialog.PrimaryButtonText" xml:space="preserve">
+    <value>Зберегти</value>
+  </data>
+  <data name="Settings_Dialog.SecondaryButtonText" xml:space="preserve">
+    <value>Скасувати</value>
+  </data>
+  <data name="Settings_Dialog.Title" xml:space="preserve">
+    <value>Налаштування</value>
+  </data>
 </root>

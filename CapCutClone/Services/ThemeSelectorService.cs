@@ -8,7 +8,7 @@ namespace CapCutClone.Services
         private readonly ILocalSettingsService _localSettingsService;
         public ThemeSelectorService(ILocalSettingsService localSettingsService)
         {
-            _currentTheme = localSettingsService.GetValueOrDefault("AppTheme", ElementTheme.Light);
+            _currentTheme = localSettingsService.GetValueOrDefault("AppTheme", ElementTheme.Default);
         }
 
         private ElementTheme _currentTheme;

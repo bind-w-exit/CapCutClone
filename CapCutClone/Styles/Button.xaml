@@ -2,6 +2,12 @@
 
     <Style x:Key="ButtonStyle" TargetType="Button">
         <Setter Property="CornerRadius" Value="5" />
+        <Setter Property="HorizontalAlignment" Value="Stretch" />
+        <Setter Property="FontWeight" Value="Bold" />
+    </Style>
+
+    <Style x:Key="IconButtonStyle" TargetType="Button">
+        <Setter Property="CornerRadius" Value="5" />
         <Setter Property="Background" Value="Transparent" />
     </Style>
 
