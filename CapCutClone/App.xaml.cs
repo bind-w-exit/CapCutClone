@@ -54,7 +54,7 @@ namespace CapCutClone
                     .AddTransient<SettingsViewModel>()
                     .BuildServiceProvider());
             }
-
+            
             if (e.PrelaunchActivated == false)
             {
                 if (rootFrame.Content == null)
@@ -67,13 +67,9 @@ namespace CapCutClone
                 // Ensure the current window is active
                 Window.Current.Activate();
             }
-
-            // Use these only if no app local settings exist yet,
-            // otherwise, after first run, write the WindowWidthLast and WindowHeightLast to Local Settings,
-            // and try to Read them at every startup...
             ApplicationView.PreferredLaunchViewSize = new Size(1000, 600);
             ApplicationView.PreferredLaunchWindowingMode = ApplicationViewWindowingMode.PreferredLaunchViewSize;
-            CoreApplication.GetCurrentView().TitleBar.ExtendViewIntoTitleBar = false;
+            CoreApplication.GetCurrentView().TitleBar.ExtendViewIntoTitleBar = true;
         }
 
         /// <summary>

@@ -42,6 +42,7 @@
                 Margin="20"
                 HorizontalAlignment="Stretch"
                 VerticalAlignment="Stretch"
+                Click="Button_Click_1"
                 CornerRadius="10"
                 FontWeight="Bold">
                 <Button.Content>
