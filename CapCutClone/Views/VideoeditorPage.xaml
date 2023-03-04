@@ -8,5 +8,16 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     mc:Ignorable="d">
 
-    <Grid Background="Firebrick" />
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <StackPanel
+            x:Name="AppTitleBar"
+            HorizontalAlignment="Stretch"
+            Background="Firebrick" />
+    </Grid>
+
 </Page>

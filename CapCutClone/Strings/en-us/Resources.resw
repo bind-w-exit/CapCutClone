@@ -137,9 +137,6 @@
   <data name="Main_Projects.Text" xml:space="preserve">
     <value>Projects</value>
   </data>
-  <data name="Main_Settings.Content" xml:space="preserve">
-    <value>Settings</value>
-  </data>
   <data name="Settings_Edit.Header" xml:space="preserve">
     <value>Edit</value>
   </data>

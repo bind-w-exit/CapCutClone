@@ -15,23 +15,46 @@
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
 
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
         <Button
             x:Uid="Main_SignIn"
+            Grid.Row="1"
             Height="50"
             Margin="20"
             VerticalAlignment="Top"
             Style="{StaticResource ButtonStyle}" />
 
-        <Button
-            x:Uid="Main_Settings"
-            Height="50"
-            Margin="20"
-            VerticalAlignment="Bottom"
-            Click="Button_Click"
-            Style="{StaticResource ButtonStyle}" />
+        <Grid Grid.ColumnSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <StackPanel
+                x:Name="AppTitleBar"
+                HorizontalAlignment="Stretch"
+                Background="Transparent" />
+
+            <Button
+                Grid.Column="0"
+                Width="40"
+                Height="30"
+                Margin="5,5,190,5"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Top"
+                Click="Button_Click"
+                Style="{StaticResource IconButtonStyle}">
+                <Button.Content>
+                    <FontIcon FontFamily="{StaticResource MaterialIcons}" Glyph="&#xe8b8;" />
+                </Button.Content>
+            </Button>
+        </Grid>
 
 
-        <Grid Grid.Column="1">
+        <Grid Grid.Row="1" Grid.Column="1">
             <Grid.RowDefinitions>
                 <RowDefinition Height="150" />
                 <RowDefinition Height="Auto" />

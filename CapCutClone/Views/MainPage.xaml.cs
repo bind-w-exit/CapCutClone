@@ -15,6 +15,7 @@ namespace CapCutClone.Views
         {         
             DataContext = Ioc.Default.GetRequiredService<MainViewModel>();
             InitializeComponent();
+            Window.Current.SetTitleBar(AppTitleBar);
         }
 
         public MainViewModel ViewModel => (MainViewModel)DataContext;
