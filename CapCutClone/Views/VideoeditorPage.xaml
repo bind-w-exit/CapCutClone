@@ -10,14 +10,128 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="50" />
+            <RowDefinition Height="40" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="75" />
+            <ColumnDefinition Width="80" />
+            <ColumnDefinition Width="150" />
+            <ColumnDefinition />
+            <ColumnDefinition Width="350" />
+        </Grid.ColumnDefinitions>
+
+        <StackPanel
+            Padding="7"
+            Orientation="Horizontal"
+            Spacing="3">
+            <FontIcon
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                FontFamily="{StaticResource MaterialIcons}"
+                FontSize="20"
+                Glyph="&#xe3ad;" />
+            <TextBlock
+                FontSize="13"
+                FontWeight="Bold"
+                Text="CapCut" />
+        </StackPanel>
+
+        <StackPanel
+            Grid.Column="2"
+            Orientation="Horizontal"
+            Spacing="5">
+
+            <FontIcon
+                FontFamily="{StaticResource MaterialIcons}"
+                FontSize="20"
+                Glyph="&#xe86c;" />
+            <TextBlock
+                VerticalAlignment="Center"
+                FontSize="13"
+                Text="Auto saved: 13:00:00" />
+        </StackPanel>
+
         <StackPanel
             x:Name="AppTitleBar"
+            Grid.ColumnSpan="4"
             HorizontalAlignment="Stretch"
-            Background="Firebrick" />
+            Background="Transparent" />
+
+        <MenuBar
+            Grid.Column="1"
+            Height="25"
+            Margin="10,0"
+            Background="Gray">
+            <MenuBarItem Title="Menu">
+                <MenuFlyoutSubItem Text="File">
+                    <MenuFlyoutItem Text="New project" />
+                    <MenuFlyoutItem Text="Import" />
+                    <MenuFlyoutItem Text="Export" />
+                </MenuFlyoutSubItem>
+
+                <MenuFlyoutSubItem Text="Edit">
+                    <MenuFlyoutItem Text="Undo" />
+                    <MenuFlyoutItem Text="Recovery" />
+                    <MenuFlyoutItem Text="Copy">
+                        <MenuFlyoutItem.KeyboardAccelerators>
+                            <KeyboardAccelerator Key="C" Modifiers="Control" />
+                        </MenuFlyoutItem.KeyboardAccelerators>
+                    </MenuFlyoutItem>
+                    <MenuFlyoutItem Text="Cut" />
+                    <MenuFlyoutItem Text="Paste" />
+                    <MenuFlyoutItem Text="Delete" />
+                </MenuFlyoutSubItem>
+
+                <MenuFlyoutSeparator />
+                <MenuFlyoutItem Text="Settings" />
+                <MenuFlyoutItem Text="Back to home page" />
+                <MenuFlyoutSeparator />
+                <MenuFlyoutItem Text="Quit" />
+            </MenuBarItem>
+        </MenuBar>
+
+        <TextBox
+            Grid.ColumnSpan="5"
+            MinWidth="150"
+            MaxWidth="250"
+            Margin="5"
+            HorizontalAlignment="Center"
+            Background="Transparent"
+            BorderBrush="Transparent"
+            FontWeight="Bold"
+            Text="NewPRoject2022" />
+
+
+        <StackPanel
+            Grid.Column="10"
+            Padding="6"
+            Orientation="Horizontal"
+            Spacing="10">
+            <Button Style="{StaticResource ButtonStyle}">
+                <Button.Content>
+                    <StackPanel Orientation="Horizontal" Spacing="3">
+                        <FontIcon
+                            FontFamily="{StaticResource MaterialIcons}"
+                            FontSize="16"
+                            Glyph="&#xe312;" />
+                        <TextBlock FontSize="12" Text="Shortcut" />
+                    </StackPanel>
+                </Button.Content>
+            </Button>
+            <Button Background="BlueViolet" Style="{StaticResource ButtonStyle}">
+                <Button.Content>
+                    <StackPanel Orientation="Horizontal" Spacing="3">
+                        <FontIcon
+                            FontFamily="{StaticResource MaterialIcons}"
+                            FontSize="16"
+                            Glyph="&#xe6b8;" />
+                        <TextBlock FontSize="12" Text="Export" />
+                    </StackPanel>
+                </Button.Content>
+            </Button>
+        </StackPanel>
     </Grid>
 
 </Page>
