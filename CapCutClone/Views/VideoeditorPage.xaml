@@ -6,6 +6,7 @@
     xmlns:local="using:CapCutClone.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    RequestedTheme="{x:Bind ViewModel.Theme, Mode=OneWay}"
     mc:Ignorable="d">
 
     <Grid>
@@ -85,7 +86,7 @@
                 </MenuFlyoutSubItem>
 
                 <MenuFlyoutSeparator />
-                <MenuFlyoutItem Text="Settings" />
+                <MenuFlyoutItem Click="MenuFlyoutItem_Click" Text="Settings" />
                 <MenuFlyoutItem Text="Back to home page" />
                 <MenuFlyoutSeparator />
                 <MenuFlyoutItem Text="Quit" />

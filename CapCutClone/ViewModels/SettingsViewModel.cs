@@ -16,13 +16,16 @@ namespace CapCutClone.ViewModels
     public class SettingsViewModel : ObservableObject 
     {
         private readonly ILocalSettingsService _settingsService;
+        private readonly IThemeSelectorService _themeSelectorService;
 
         public SettingsViewModel(ILocalSettingsService settingsService, ILocalizationService localizationService, IThemeSelectorService themeSelectorService) 
         {
-            Theme = themeSelectorService.CurrentTheme;
-            themeSelectorService.ThemeChanged += (s, e) =>
+            _themeSelectorService = themeSelectorService;
+
+            Theme = _themeSelectorService.CurrentTheme;
+            _themeSelectorService.ThemeChanged += (s, e) =>
             {
-                Theme = themeSelectorService.CurrentTheme;
+                Theme = _themeSelectorService.CurrentTheme;
             };
 
             _settingsService = settingsService;
@@ -40,6 +43,7 @@ namespace CapCutClone.ViewModels
             SaveSettingsCommand = new RelayCommand(SaveToSettings);
             Languages = localizationService.Languages;
             SelectedLanguage = localizationService.GetCurrentLanguageItem();
+            ChangeThemeCommand = new RelayCommand(ChangeTheme);
         }
 
         private ElementTheme theme;
@@ -184,6 +188,8 @@ namespace CapCutClone.ViewModels
 
         public ICommand SaveSettingsCommand { get; }
 
+        public ICommand ChangeThemeCommand { get; }
+
         private void SelectProjectSavePath() 
         {
             //TODO: Write implementation for SelectProjectSavePath
@@ -202,6 +208,19 @@ namespace CapCutClone.ViewModels
         private void DeleteProxyCache() 
         {
             //TODO: Write implementation for DeleteProxyCache
+        }
+
+        //TODO: Refactor ChangeTheme method
+        private void ChangeTheme()
+        {
+            if (Theme == ElementTheme.Default || Theme == ElementTheme.Dark)
+            {
+                _themeSelectorService.CurrentTheme = ElementTheme.Light;
+            }
+            else
+            {
+                _themeSelectorService.CurrentTheme = ElementTheme.Dark;
+            }
         }
 
         private void LoadFromSetting()

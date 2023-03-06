@@ -1,4 +1,7 @@
-﻿using Windows.UI.Xaml;
+﻿using CapCutClone.ViewModels;
+using CommunityToolkit.Mvvm.DependencyInjection;
+using System;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
 namespace CapCutClone.Views
@@ -7,8 +10,17 @@ namespace CapCutClone.Views
     {
         public VideoEditorPage()
         {
+            DataContext = Ioc.Default.GetRequiredService<VideoEditorViewModel>();
             InitializeComponent();
             Window.Current.SetTitleBar(AppTitleBar);
+        }
+
+        public VideoEditorViewModel ViewModel => (VideoEditorViewModel)DataContext;
+
+        private async void MenuFlyoutItem_Click(object sender, RoutedEventArgs e)
+        {
+            var dialog = new SettingsDialog();
+            var res = await dialog.ShowAsync();
         }
     }
 }

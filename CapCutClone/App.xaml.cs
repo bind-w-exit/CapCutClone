@@ -52,6 +52,7 @@ namespace CapCutClone
                     .AddSingleton<IThemeSelectorService, ThemeSelectorService>()
                     .AddTransient<MainViewModel>() //ViewModels
                     .AddTransient<SettingsViewModel>()
+                    .AddTransient<VideoEditorViewModel>()
                     .BuildServiceProvider());
             }
             

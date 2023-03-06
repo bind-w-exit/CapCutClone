@@ -12,7 +12,7 @@
     CornerRadius="10"
     PrimaryButtonCommand="{x:Bind ViewModel.SaveSettingsCommand}"
     PrimaryButtonStyle="{ThemeResource AccentButtonStyle}"
-    RequestedTheme="{x:Bind ViewModel.Theme}"
+    RequestedTheme="{x:Bind ViewModel.Theme, Mode=OneWay}"
     mc:Ignorable="d">
 
     <ContentDialog.Resources>
@@ -255,6 +255,10 @@
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
+            </PivotItem>
+
+            <PivotItem Margin="15" Header="Theme">
+                <Button Command="{x:Bind ViewModel.ChangeThemeCommand}" Content="Change theme" />
             </PivotItem>
         </Pivot>
     </Grid>
