@@ -3,23 +3,26 @@ using Windows.UI.Xaml;
 
 namespace CapCutClone.Services
 {
-    internal class ThemeSelectorService : IThemeSelectorService
+    public class ThemeSelectorService : IThemeSelectorService
     {
         private readonly ILocalSettingsService _localSettingsService;
+
         public ThemeSelectorService(ILocalSettingsService localSettingsService)
         {
-            _currentTheme = localSettingsService.GetValueOrDefault("AppTheme", ElementTheme.Default);
+            _localSettingsService = localSettingsService;
+            _theme = _localSettingsService.GetValueOrDefault("AppTheme", ElementTheme.Default);
         }
 
-        private ElementTheme _currentTheme;
-        public ElementTheme CurrentTheme
+        private ElementTheme _theme;
+        public ElementTheme Theme
         {
-            get { return _currentTheme; }
+            get { return _theme; }
             set
             {
-                if (_currentTheme != value)
+                if (_theme != value)
                 {
-                    _currentTheme = value;
+                    _theme = value;
+                    _localSettingsService.Save("AppTheme", value);
                     ThemeChanged?.Invoke(this, EventArgs.Empty);
                 }
             }

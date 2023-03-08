@@ -8,10 +8,10 @@ namespace CapCutClone.ViewModels
     {
         public VideoEditorViewModel(IThemeSelectorService themeSelectorService)
         {
-            Theme = themeSelectorService.CurrentTheme;
+            Theme = themeSelectorService.Theme;
             themeSelectorService.ThemeChanged += (s, e) =>
             {
-                Theme = themeSelectorService.CurrentTheme;
+                Theme = themeSelectorService.Theme;
             };
         }
 
@@ -19,7 +19,7 @@ namespace CapCutClone.ViewModels
         public ElementTheme Theme
         {
             get => theme;
-            set => SetProperty(ref theme, value);
+            private set => SetProperty(ref theme, value);
         }
     }
 }

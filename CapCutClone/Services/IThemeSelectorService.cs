@@ -7,6 +7,6 @@ namespace CapCutClone.Services
     {
         event EventHandler<EventArgs> ThemeChanged;
 
-        ElementTheme CurrentTheme { get; set; }
+        ElementTheme Theme { get; set; }
     }
 }

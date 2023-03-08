@@ -22,5 +22,11 @@ namespace CapCutClone.Views
             var dialog = new SettingsDialog();
             var res = await dialog.ShowAsync();
         }
+
+        private async void Button_Click(object sender, RoutedEventArgs e)
+        {
+            var dialog = new ShortcutDialog();
+            var res = await dialog.ShowAsync();
+        }
     }
 }

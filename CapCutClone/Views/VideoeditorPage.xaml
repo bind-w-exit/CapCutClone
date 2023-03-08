@@ -110,7 +110,7 @@
             Padding="6"
             Orientation="Horizontal"
             Spacing="10">
-            <Button Style="{StaticResource ButtonStyle}">
+            <Button Click="Button_Click" Style="{StaticResource ButtonStyle}">
                 <Button.Content>
                     <StackPanel Orientation="Horizontal" Spacing="3">
                         <FontIcon

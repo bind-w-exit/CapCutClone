@@ -15,10 +15,10 @@ namespace CapCutClone.ViewModels
             LanguageItem lang = localSettingsService.GetValueOrDefault("SelectedLanguage", new LanguageItem("en-US", "English"));
             localizationService.SetLanguage(lang);
 
-            Theme = themeSelectorService.CurrentTheme;
+            Theme = themeSelectorService.Theme;
             themeSelectorService.ThemeChanged += (s, e) =>
             {
-                Theme = themeSelectorService.CurrentTheme;
+                Theme = themeSelectorService.Theme;
             };
 
             SelectedViewType = ViewTypes[0];
@@ -30,7 +30,7 @@ namespace CapCutClone.ViewModels
         public ElementTheme Theme 
         {
             get => theme;
-            set => SetProperty(ref theme, value);
+            private set => SetProperty(ref theme, value);
         }
 
         public string ProjectsCount { get; set; } = "(0)";

@@ -6,9 +6,7 @@ using CommunityToolkit.Mvvm.Input;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Input;
-using Windows.ApplicationModel.Resources.Core;
 using Windows.UI.Xaml;
 
 namespace CapCutClone.ViewModels
@@ -22,14 +20,18 @@ namespace CapCutClone.ViewModels
         {
             _themeSelectorService = themeSelectorService;
 
-            Theme = _themeSelectorService.CurrentTheme;
+            Theme = _themeSelectorService.Theme;
             _themeSelectorService.ThemeChanged += (s, e) =>
             {
-                Theme = _themeSelectorService.CurrentTheme;
+                Theme = _themeSelectorService.Theme;
             };
 
             _settingsService = settingsService;
             LoadFromSetting();
+
+            Languages = localizationService.Languages;
+            SelectedLanguage = localizationService.GetCurrentLanguageItem();
+
             SelectProjectSavePathCommand = new RelayCommand(SelectProjectSavePath);
             DeleteProjectCacheCommand = new RelayCommand(DeleteProjectCache);
             IncrementImageDuration = new RelayCommand(() => { ImageDuration++; });
@@ -40,9 +42,7 @@ namespace CapCutClone.ViewModels
             });
             SelectProxySavePathCommand = new RelayCommand(SelectProxySavePath);
             DeleteProxyCacheCommand = new RelayCommand(DeleteProxyCache);
-            SaveSettingsCommand = new RelayCommand(SaveToSettings);
-            Languages = localizationService.Languages;
-            SelectedLanguage = localizationService.GetCurrentLanguageItem();
+            SaveSettingsCommand = new RelayCommand(SaveToSettings);           
             ChangeThemeCommand = new RelayCommand(ChangeTheme);
         }
 
@@ -50,7 +50,7 @@ namespace CapCutClone.ViewModels
         public ElementTheme Theme
         {
             get => theme;
-            set => SetProperty(ref theme, value);
+            private set => SetProperty(ref theme, value);
         }
 
         private string projectSavePath;
@@ -215,11 +215,11 @@ namespace CapCutClone.ViewModels
         {
             if (Theme == ElementTheme.Default || Theme == ElementTheme.Dark)
             {
-                _themeSelectorService.CurrentTheme = ElementTheme.Light;
+                _themeSelectorService.Theme = ElementTheme.Light;
             }
             else
             {
-                _themeSelectorService.CurrentTheme = ElementTheme.Dark;
+                _themeSelectorService.Theme = ElementTheme.Dark;
             }
         }
 
