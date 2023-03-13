@@ -8,19 +8,881 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Title="TITLE"
     PrimaryButtonClick="ContentDialog_PrimaryButtonClick"
-    PrimaryButtonText="Button1"
+    PrimaryButtonText="Save"
     SecondaryButtonClick="ContentDialog_SecondaryButtonClick"
-    SecondaryButtonText="Button2"
+    SecondaryButtonText="Cancel"
     mc:Ignorable="d">
 
     <Grid>
-        <controls:HotKeyTextBox
-            Grid.Column="1"
-            Width="120"
-            HorizontalAlignment="Right"
-            VerticalAlignment="Center"
-            HotKey="{Binding ToggleHotKey}"
-            Style="{ThemeResource TextBoxStyle}"
-            TextAlignment="Center" />
+        <Pivot IsHeaderItemsCarouselEnabled="False">
+
+            <PivotItem Margin="15" Header="TimeLine">
+
+                <ScrollViewer>
+                    <Grid
+                        Margin="10"
+                        ColumnSpacing="20"
+                        RowSpacing="10">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1.25*" />
+                            <ColumnDefinition />
+                            <ColumnDefinition Width="1.25*" />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <TextBlock VerticalAlignment="Center" Text="Split" />
+                        <controls:HotKeyTextBox
+                            Grid.Column="1"
+                            Width="120"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Center"
+                            HotKey="{Binding ToggleHotKey}"
+                            Style="{ThemeResource TextBoxStyle}"
+                            TextAlignment="Center" />
+
+                        <TextBlock
+                            Grid.Row="1"
+                            VerticalAlignment="Center"
+                            Text="Split all" />
+                        <controls:HotKeyTextBox
+                            Grid.Row="1"
+                            Grid.Column="1"
+                            Width="120"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Center"
+                            HotKey="{Binding ToggleHotKey}"
+                            Style="{ThemeResource TextBoxStyle}"
+                            TextAlignment="Center" />
+
+                        <TextBlock
+                            Grid.Row="2"
+                            VerticalAlignment="Center"
+                            Text="Select mode" />
+                        <controls:HotKeyTextBox
+                            Grid.Row="2"
+                            Grid.Column="1"
+                            Width="120"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Center"
+                            HotKey="{Binding ToggleHotKey}"
+                            Style="{ThemeResource TextBoxStyle}"
+                            TextAlignment="Center" />
+
+                        <TextBlock
+                            Grid.Row="3"
+                            VerticalAlignment="Center"
+                            Text="Split mode" />
+                        <controls:HotKeyTextBox
+                            Grid.Row="3"
+                            Grid.Column="1"
+                            Width="120"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Center"
+                            HotKey="{Binding ToggleHotKey}"
+                            Style="{ThemeResource TextBoxStyle}"
+                            TextAlignment="Center" />
+
+                        <TextBlock
+                            Grid.Row="4"
+                            VerticalAlignment="Center"
+                            Text="Select leftward" />
+                        <controls:HotKeyTextBox
+                            Grid.Row="4"
+                            Grid.Column="1"
+                            Width="120"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Center"
+                            HotKey="{Binding ToggleHotKey}"
+                            Style="{ThemeResource TextBoxStyle}"
+                            TextAlignment="Center" />
+
+                        <TextBlock
+                            Grid.Row="5"
+                            VerticalAlignment="Center"
+                            Text="Select rightward" />
+                        <controls:HotKeyTextBox
+                            Grid.Row="5"
+                            Grid.Column="1"
+                            Width="120"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Center"
+                            HotKey="{Binding ToggleHotKey}"
+                            Style="{ThemeResource TextBoxStyle}"
+                            TextAlignment="Center" />
+
+                        <TextBlock
+                            Grid.Row="6"
+                            VerticalAlignment="Center"
+                            Text="Main track magnet" />
+                        <controls:HotKeyTextBox
+                            Grid.Row="6"
+                            Grid.Column="1"
+                            Width="120"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Center"
+                            HotKey="{Binding ToggleHotKey}"
+                            Style="{ThemeResource TextBoxStyle}"
+                            TextAlignment="Center" />
+
+                        <TextBlock
+                            Grid.Row="7"
+                            VerticalAlignment="Center"
+                            Text="Auto snapping" />
+                        <controls:HotKeyTextBox
+                            Grid.Row="7"
+                            Grid.Column="1"
+                            Width="120"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Center"
+                            HotKey="{Binding ToggleHotKey}"
+                            Style="{ThemeResource TextBoxStyle}"
+                            TextAlignment="Center" />
+
+                        <TextBlock
+                            Grid.Row="8"
+                            VerticalAlignment="Center"
+                            Text="Linkage switch" />
+                        <controls:HotKeyTextBox
+                            Grid.Row="8"
+                            Grid.Column="1"
+                            Width="120"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Center"
+                            HotKey="{Binding ToggleHotKey}"
+                            Style="{ThemeResource TextBoxStyle}"
+                            TextAlignment="Center" />
+
+                        <TextBlock
+                            Grid.Row="9"
+                            VerticalAlignment="Center"
+                            Text="Prewiew axis switch" />
+                        <controls:HotKeyTextBox
+                            Grid.Row="9"
+                            Grid.Column="1"
+                            Width="120"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Center"
+                            HotKey="{Binding ToggleHotKey}"
+                            Style="{ThemeResource TextBoxStyle}"
+                            TextAlignment="Center" />
+
+                        <TextBlock
+                            Grid.Row="10"
+                            VerticalAlignment="Center"
+                            Text="Zoom in" />
+                        <controls:HotKeyTextBox
+                            Grid.Row="10"
+                            Grid.Column="1"
+                            Width="120"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Center"
+                            HotKey="{Binding ToggleHotKey}"
+                            Style="{ThemeResource TextBoxStyle}"
+                            TextAlignment="Center" />
+
+                        <TextBlock
+                            Grid.Row="11"
+                            VerticalAlignment="Center"
+                            Text="Zoom out" />
+                        <controls:HotKeyTextBox
+                            Grid.Row="11"
+                            Grid.Column="1"
+                            Width="120"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Center"
+                            HotKey="{Binding ToggleHotKey}"
+                            Style="{ThemeResource TextBoxStyle}"
+                            TextAlignment="Center" />
+
+                        <TextBlock
+                            Grid.Row="12"
+                            VerticalAlignment="Center"
+                            Text="Zoom in/Zoom out" />
+                        <controls:HotKeyTextBox
+                            Grid.Row="12"
+                            Grid.Column="1"
+                            Width="120"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Center"
+                            HotKey="{Binding ToggleHotKey}"
+                            Style="{ThemeResource TextBoxStyle}"
+                            TextAlignment="Center" />
+
+                        <TextBlock
+                            Grid.Row="13"
+                            VerticalAlignment="Center"
+                            Text="Up/Down" />
+                        <controls:HotKeyTextBox
+                            Grid.Row="13"
+                            Grid.Column="1"
+                            Width="120"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Center"
+                            HotKey="{Binding ToggleHotKey}"
+                            Style="{ThemeResource TextBoxStyle}"
+                            TextAlignment="Center" />
+
+                        <TextBlock
+                            Grid.Row="14"
+                            VerticalAlignment="Center"
+                            Text="Left/Right" />
+                        <controls:HotKeyTextBox
+                            Grid.Row="14"
+                            Grid.Column="1"
+                            Width="120"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Center"
+                            HotKey="{Binding ToggleHotKey}"
+                            Style="{ThemeResource TextBoxStyle}"
+                            TextAlignment="Center" />
+
+                        <TextBlock
+                            Grid.Row="15"
+                            VerticalAlignment="Center"
+                            Text="Active/Deactive clip" />
+                        <controls:HotKeyTextBox
+                            Grid.Row="15"
+                            Grid.Column="1"
+                            Width="120"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Center"
+                            HotKey="{Binding ToggleHotKey}"
+                            Style="{ThemeResource TextBoxStyle}"
+                            TextAlignment="Center" />
+
+                        <TextBlock
+                            Grid.Row="16"
+                            VerticalAlignment="Center"
+                            Text="Separate/Restore audio" />
+                        <controls:HotKeyTextBox
+                            Grid.Row="16"
+                            Grid.Column="1"
+                            Width="120"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Center"
+                            HotKey="{Binding ToggleHotKey}"
+                            Style="{ThemeResource TextBoxStyle}"
+                            TextAlignment="Center" />
+
+                        <TextBlock
+                            Grid.Row="17"
+                            VerticalAlignment="Center"
+                            Text="Math cut" />
+                        <controls:HotKeyTextBox
+                            Grid.Row="17"
+                            Grid.Column="1"
+                            Width="120"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Center"
+                            HotKey="{Binding ToggleHotKey}"
+                            Style="{ThemeResource TextBoxStyle}"
+                            TextAlignment="Center" />
+
+                        <TextBlock
+                            Grid.Row="18"
+                            VerticalAlignment="Center"
+                            Text="Previous frame" />
+                        <controls:HotKeyTextBox
+                            Grid.Row="18"
+                            Grid.Column="1"
+                            Width="120"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Center"
+                            HotKey="{Binding ToggleHotKey}"
+                            Style="{ThemeResource TextBoxStyle}"
+                            TextAlignment="Center" />
+
+                        <TextBlock
+                            Grid.Column="2"
+                            VerticalAlignment="Center"
+                            Text="Next frame" />
+                        <controls:HotKeyTextBox
+                            Grid.Column="3"
+                            Width="120"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Center"
+                            HotKey="{Binding ToggleHotKey}"
+                            Style="{ThemeResource TextBoxStyle}"
+                            TextAlignment="Center" />
+
+                        <TextBlock
+                            Grid.Row="1"
+                            Grid.Column="2"
+                            VerticalAlignment="Center"
+                            Text="Locate to first frame" />
+                        <controls:HotKeyTextBox
+                            Grid.Row="1"
+                            Grid.Column="3"
+                            Width="120"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Center"
+                            HotKey="{Binding ToggleHotKey}"
+                            Style="{ThemeResource TextBoxStyle}"
+                            TextAlignment="Center" />
+
+                        <TextBlock
+                            Grid.Row="2"
+                            Grid.Column="2"
+                            VerticalAlignment="Center"
+                            Text="Locate to last frame" />
+                        <controls:HotKeyTextBox
+                            Grid.Row="2"
+                            Grid.Column="3"
+                            Width="120"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Center"
+                            HotKey="{Binding ToggleHotKey}"
+                            Style="{ThemeResource TextBoxStyle}"
+                            TextAlignment="Center" />
+
+                        <TextBlock
+                            Grid.Row="3"
+                            Grid.Column="2"
+                            VerticalAlignment="Center"
+                            Text="Last cut point" />
+                        <controls:HotKeyTextBox
+                            Grid.Row="3"
+                            Grid.Column="3"
+                            Width="120"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Center"
+                            HotKey="{Binding ToggleHotKey}"
+                            Style="{ThemeResource TextBoxStyle}"
+                            TextAlignment="Center" />
+
+                        <TextBlock
+                            Grid.Row="4"
+                            Grid.Column="2"
+                            VerticalAlignment="Center"
+                            Text="Next cut point" />
+                        <controls:HotKeyTextBox
+                            Grid.Row="4"
+                            Grid.Column="3"
+                            Width="120"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Center"
+                            HotKey="{Binding ToggleHotKey}"
+                            Style="{ThemeResource TextBoxStyle}"
+                            TextAlignment="Center" />
+
+                        <TextBlock
+                            Grid.Row="5"
+                            Grid.Column="2"
+                            VerticalAlignment="Center"
+                            Text="In point" />
+                        <controls:HotKeyTextBox
+                            Grid.Row="5"
+                            Grid.Column="3"
+                            Width="120"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Center"
+                            HotKey="{Binding ToggleHotKey}"
+                            Style="{ThemeResource TextBoxStyle}"
+                            TextAlignment="Center" />
+
+                        <TextBlock
+                            Grid.Row="6"
+                            Grid.Column="2"
+                            VerticalAlignment="Center"
+                            Text="Out point" />
+                        <controls:HotKeyTextBox
+                            Grid.Row="6"
+                            Grid.Column="3"
+                            Width="120"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Center"
+                            HotKey="{Binding ToggleHotKey}"
+                            Style="{ThemeResource TextBoxStyle}"
+                            TextAlignment="Center" />
+
+                        <TextBlock
+                            Grid.Row="7"
+                            Grid.Column="2"
+                            VerticalAlignment="Center"
+                            Text="Select an area by clip" />
+                        <controls:HotKeyTextBox
+                            Grid.Row="7"
+                            Grid.Column="3"
+                            Width="120"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Center"
+                            HotKey="{Binding ToggleHotKey}"
+                            Style="{ThemeResource TextBoxStyle}"
+                            TextAlignment="Center" />
+
+                        <TextBlock
+                            Grid.Row="8"
+                            Grid.Column="2"
+                            VerticalAlignment="Center"
+                            Text="Unselect area" />
+                        <controls:HotKeyTextBox
+                            Grid.Row="8"
+                            Grid.Column="3"
+                            Width="120"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Center"
+                            HotKey="{Binding ToggleHotKey}"
+                            Style="{ThemeResource TextBoxStyle}"
+                            TextAlignment="Center" />
+
+                        <TextBlock
+                            Grid.Row="9"
+                            Grid.Column="2"
+                            VerticalAlignment="Center"
+                            Text="Group" />
+                        <controls:HotKeyTextBox
+                            Grid.Row="9"
+                            Grid.Column="3"
+                            Width="120"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Center"
+                            HotKey="{Binding ToggleHotKey}"
+                            Style="{ThemeResource TextBoxStyle}"
+                            TextAlignment="Center" />
+
+                        <TextBlock
+                            Grid.Row="10"
+                            Grid.Column="2"
+                            VerticalAlignment="Center"
+                            Text="Ungroup" />
+                        <controls:HotKeyTextBox
+                            Grid.Row="10"
+                            Grid.Column="3"
+                            Width="120"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Center"
+                            HotKey="{Binding ToggleHotKey}"
+                            Style="{ThemeResource TextBoxStyle}"
+                            TextAlignment="Center" />
+
+                        <TextBlock
+                            Grid.Row="11"
+                            Grid.Column="2"
+                            VerticalAlignment="Center"
+                            Text="Show speed panel" />
+                        <controls:HotKeyTextBox
+                            Grid.Row="11"
+                            Grid.Column="3"
+                            Width="120"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Center"
+                            HotKey="{Binding ToggleHotKey}"
+                            Style="{ThemeResource TextBoxStyle}"
+                            TextAlignment="Center" />
+
+                        <TextBlock
+                            Grid.Row="12"
+                            Grid.Column="2"
+                            VerticalAlignment="Center"
+                            Text="Curve speed" />
+                        <controls:HotKeyTextBox
+                            Grid.Row="12"
+                            Grid.Column="3"
+                            Width="120"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Center"
+                            HotKey="{Binding ToggleHotKey}"
+                            Style="{ThemeResource TextBoxStyle}"
+                            TextAlignment="Center" />
+
+                        <TextBlock
+                            Grid.Row="13"
+                            Grid.Column="2"
+                            VerticalAlignment="Center"
+                            Text="Create compound clip" />
+                        <controls:HotKeyTextBox
+                            Grid.Row="13"
+                            Grid.Column="3"
+                            Width="120"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Center"
+                            HotKey="{Binding ToggleHotKey}"
+                            Style="{ThemeResource TextBoxStyle}"
+                            TextAlignment="Center" />
+
+                        <TextBlock
+                            Grid.Row="14"
+                            Grid.Column="2"
+                            VerticalAlignment="Center"
+                            Text="Unlock compound clip draft" />
+                        <controls:HotKeyTextBox
+                            Grid.Row="14"
+                            Grid.Column="3"
+                            Width="120"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Center"
+                            HotKey="{Binding ToggleHotKey}"
+                            Style="{ThemeResource TextBoxStyle}"
+                            TextAlignment="Center" />
+
+                        <TextBlock
+                            Grid.Row="15"
+                            Grid.Column="2"
+                            VerticalAlignment="Center"
+                            Text="Volume +0.1dB" />
+                        <controls:HotKeyTextBox
+                            Grid.Row="15"
+                            Grid.Column="3"
+                            Width="120"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Center"
+                            HotKey="{Binding ToggleHotKey}"
+                            Style="{ThemeResource TextBoxStyle}"
+                            TextAlignment="Center" />
+
+                        <TextBlock
+                            Grid.Row="16"
+                            Grid.Column="2"
+                            VerticalAlignment="Center"
+                            Text="Volume -0.1dB" />
+                        <controls:HotKeyTextBox
+                            Grid.Row="16"
+                            Grid.Column="3"
+                            Width="120"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Center"
+                            HotKey="{Binding ToggleHotKey}"
+                            Style="{ThemeResource TextBoxStyle}"
+                            TextAlignment="Center" />
+
+                        <TextBlock
+                            Grid.Row="17"
+                            Grid.Column="2"
+                            VerticalAlignment="Center"
+                            Text="In" />
+                        <controls:HotKeyTextBox
+                            Grid.Row="17"
+                            Grid.Column="3"
+                            Width="120"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Center"
+                            HotKey="{Binding ToggleHotKey}"
+                            Style="{ThemeResource TextBoxStyle}"
+                            TextAlignment="Center" />
+
+                    </Grid>
+                </ScrollViewer>
+            </PivotItem>
+
+            <PivotItem Header="Player">
+                <Grid
+                    Margin="10"
+                    ColumnSpacing="20"
+                    RowSpacing="10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+
+                    <TextBlock VerticalAlignment="Center" Text="Play/Pause" />
+                    <controls:HotKeyTextBox
+                        Grid.Column="1"
+                        Width="120"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Center"
+                        HotKey="{Binding ToggleHotKey}"
+                        Style="{ThemeResource TextBoxStyle}"
+                        TextAlignment="Center" />
+
+                    <TextBlock
+                        Grid.Row="1"
+                        VerticalAlignment="Center"
+                        Text="Enter/Exit full screen" />
+                    <controls:HotKeyTextBox
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        Width="120"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Center"
+                        HotKey="{Binding ToggleHotKey}"
+                        Style="{ThemeResource TextBoxStyle}"
+                        TextAlignment="Center" />
+
+                    <TextBlock
+                        Grid.Column="2"
+                        VerticalAlignment="Center"
+                        Text="Enter/Exit full screen" />
+                    <controls:HotKeyTextBox
+                        Grid.Column="3"
+                        Width="120"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Center"
+                        HotKey="{Binding ToggleHotKey}"
+                        Style="{ThemeResource TextBoxStyle}"
+                        TextAlignment="Center" />
+                </Grid>
+            </PivotItem>
+
+            <PivotItem Header="Basic">
+                <Grid
+                    Margin="10"
+                    ColumnSpacing="20"
+                    RowSpacing="10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+
+                    <TextBlock VerticalAlignment="Center" Text="Copy" />
+                    <controls:HotKeyTextBox
+                        Grid.Column="1"
+                        Width="120"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Center"
+                        HotKey="{Binding ToggleHotKey}"
+                        Style="{ThemeResource TextBoxStyle}"
+                        TextAlignment="Center" />
+
+                    <TextBlock
+                        Grid.Row="1"
+                        VerticalAlignment="Center"
+                        Text="Cut" />
+                    <controls:HotKeyTextBox
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        Width="120"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Center"
+                        HotKey="{Binding ToggleHotKey}"
+                        Style="{ThemeResource TextBoxStyle}"
+                        TextAlignment="Center" />
+
+                    <TextBlock
+                        Grid.Row="2"
+                        VerticalAlignment="Center"
+                        Text="Paste" />
+                    <controls:HotKeyTextBox
+                        Grid.Row="2"
+                        Grid.Column="1"
+                        Width="120"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Center"
+                        HotKey="{Binding ToggleHotKey}"
+                        Style="{ThemeResource TextBoxStyle}"
+                        TextAlignment="Center" />
+
+                    <TextBlock
+                        Grid.Row="3"
+                        VerticalAlignment="Center"
+                        Text="Delete" />
+                    <controls:HotKeyTextBox
+                        Grid.Row="3"
+                        Grid.Column="1"
+                        Width="120"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Center"
+                        HotKey="{Binding ToggleHotKey}"
+                        Style="{ThemeResource TextBoxStyle}"
+                        TextAlignment="Center" />
+
+                    <TextBlock
+                        Grid.Row="4"
+                        VerticalAlignment="Center"
+                        Text="Undo" />
+                    <controls:HotKeyTextBox
+                        Grid.Row="4"
+                        Grid.Column="1"
+                        Width="120"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Center"
+                        HotKey="{Binding ToggleHotKey}"
+                        Style="{ThemeResource TextBoxStyle}"
+                        TextAlignment="Center" />
+
+                    <TextBlock
+                        Grid.Row="5"
+                        VerticalAlignment="Center"
+                        Text="Redo" />
+                    <controls:HotKeyTextBox
+                        Grid.Row="5"
+                        Grid.Column="1"
+                        Width="120"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Center"
+                        HotKey="{Binding ToggleHotKey}"
+                        Style="{ThemeResource TextBoxStyle}"
+                        TextAlignment="Center" />
+
+                    <TextBlock
+                        Grid.Row="6"
+                        VerticalAlignment="Center"
+                        Text="Import media" />
+                    <controls:HotKeyTextBox
+                        Grid.Row="6"
+                        Grid.Column="1"
+                        Width="120"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Center"
+                        HotKey="{Binding ToggleHotKey}"
+                        Style="{ThemeResource TextBoxStyle}"
+                        TextAlignment="Center" />
+
+                    <TextBlock
+                        Grid.Column="2"
+                        VerticalAlignment="Center"
+                        Text="Export still frame" />
+                    <controls:HotKeyTextBox
+                        Grid.Column="3"
+                        Width="120"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Center"
+                        HotKey="{Binding ToggleHotKey}"
+                        Style="{ThemeResource TextBoxStyle}"
+                        TextAlignment="Center" />
+
+                    <TextBlock
+                        Grid.Row="1"
+                        Grid.Column="2"
+                        VerticalAlignment="Center"
+                        Text="Export" />
+                    <controls:HotKeyTextBox
+                        Grid.Row="1"
+                        Grid.Column="3"
+                        Width="120"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Center"
+                        HotKey="{Binding ToggleHotKey}"
+                        Style="{ThemeResource TextBoxStyle}"
+                        TextAlignment="Center" />
+
+                    <TextBlock
+                        Grid.Row="2"
+                        Grid.Column="2"
+                        VerticalAlignment="Center"
+                        Text="New project" />
+                    <controls:HotKeyTextBox
+                        Grid.Row="2"
+                        Grid.Column="3"
+                        Width="120"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Center"
+                        HotKey="{Binding ToggleHotKey}"
+                        Style="{ThemeResource TextBoxStyle}"
+                        TextAlignment="Center" />
+
+                    <TextBlock
+                        Grid.Row="3"
+                        Grid.Column="2"
+                        VerticalAlignment="Center"
+                        Text="Switch material panel" />
+                    <controls:HotKeyTextBox
+                        Grid.Row="3"
+                        Grid.Column="3"
+                        Width="120"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Center"
+                        HotKey="{Binding ToggleHotKey}"
+                        Style="{ThemeResource TextBoxStyle}"
+                        TextAlignment="Center" />
+
+                    <TextBlock
+                        Grid.Row="4"
+                        Grid.Column="2"
+                        VerticalAlignment="Center"
+                        Text="Back to edit" />
+                    <controls:HotKeyTextBox
+                        Grid.Row="4"
+                        Grid.Column="3"
+                        Width="120"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Center"
+                        HotKey="{Binding ToggleHotKey}"
+                        Style="{ThemeResource TextBoxStyle}"
+                        TextAlignment="Center" />
+
+                    <TextBlock
+                        Grid.Row="5"
+                        Grid.Column="2"
+                        VerticalAlignment="Center"
+                        Text="Quit" />
+                    <controls:HotKeyTextBox
+                        Grid.Row="5"
+                        Grid.Column="3"
+                        Width="120"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Center"
+                        HotKey="{Binding ToggleHotKey}"
+                        Style="{ThemeResource TextBoxStyle}"
+                        TextAlignment="Center" />
+                </Grid>
+            </PivotItem>
+
+            <PivotItem Header="Other">
+                <Grid
+                    Margin="10"
+                    ColumnSpacing="20"
+                    RowSpacing="10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+
+                    <TextBlock VerticalAlignment="Center" Text="Split captions" />
+                    <controls:HotKeyTextBox
+                        Grid.Column="1"
+                        Width="120"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Center"
+                        HotKey="{Binding ToggleHotKey}"
+                        Style="{ThemeResource TextBoxStyle}"
+                        TextAlignment="Center" />
+
+                    <TextBlock
+                        Grid.Column="2"
+                        VerticalAlignment="Center"
+                        Text="Captions line wrap" />
+                    <controls:HotKeyTextBox
+                        Grid.Column="3"
+                        Width="120"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Center"
+                        HotKey="{Binding ToggleHotKey}"
+                        Style="{ThemeResource TextBoxStyle}"
+                        TextAlignment="Center" />
+                </Grid>
+            </PivotItem>
+        </Pivot>
     </Grid>
 </ContentDialog>
