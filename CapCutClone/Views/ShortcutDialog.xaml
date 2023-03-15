@@ -6,7 +6,9 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="using:CapCutClone.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewmodels="using:CapCutClone.ViewModels"
     Title="TITLE"
+    d:DataContext="{d:DesignInstance Type=viewmodels:ShortcutViewModel}"
     PrimaryButtonClick="ContentDialog_PrimaryButtonClick"
     PrimaryButtonText="Save"
     SecondaryButtonClick="ContentDialog_SecondaryButtonClick"
@@ -24,9 +26,7 @@
                         ColumnSpacing="20"
                         RowSpacing="10">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="1.25*" />
                             <ColumnDefinition />
-                            <ColumnDefinition Width="1.25*" />
                             <ColumnDefinition />
                         </Grid.ColumnDefinitions>
                         <Grid.RowDefinitions>
@@ -50,535 +50,208 @@
                             <RowDefinition />
                             <RowDefinition />
                         </Grid.RowDefinitions>
-                        <TextBlock VerticalAlignment="Center" Text="Split" />
-                        <controls:HotKeyTextBox
-                            Grid.Column="1"
-                            Width="120"
-                            HorizontalAlignment="Right"
-                            VerticalAlignment="Center"
-                            HotKey="{Binding ToggleHotKey}"
-                            Style="{ThemeResource TextBoxStyle}"
-                            TextAlignment="Center" />
 
-                        <TextBlock
+                        <controls:TextBlockWithHotKey
+                            Grid.Row="0"
+                            HotKey="{x:Bind ViewModel.SplitHotKey, Mode=TwoWay}"
+                            LabelText="Split" />
+
+                        <controls:TextBlockWithHotKey
                             Grid.Row="1"
-                            VerticalAlignment="Center"
-                            Text="Split all" />
-                        <controls:HotKeyTextBox
-                            Grid.Row="1"
-                            Grid.Column="1"
-                            Width="120"
-                            HorizontalAlignment="Right"
-                            VerticalAlignment="Center"
-                            HotKey="{Binding ToggleHotKey}"
-                            Style="{ThemeResource TextBoxStyle}"
-                            TextAlignment="Center" />
+                            HotKey="{x:Bind ViewModel.SplitAllHotKey, Mode=TwoWay}"
+                            LabelText="Split all" />
 
-                        <TextBlock
+                        <controls:TextBlockWithHotKey
                             Grid.Row="2"
-                            VerticalAlignment="Center"
-                            Text="Select mode" />
-                        <controls:HotKeyTextBox
-                            Grid.Row="2"
-                            Grid.Column="1"
-                            Width="120"
-                            HorizontalAlignment="Right"
-                            VerticalAlignment="Center"
-                            HotKey="{Binding ToggleHotKey}"
-                            Style="{ThemeResource TextBoxStyle}"
-                            TextAlignment="Center" />
+                            HotKey="{x:Bind ViewModel.SelectModeHotkey, Mode=TwoWay}"
+                            LabelText="Select mode" />
 
-                        <TextBlock
+                        <controls:TextBlockWithHotKey
                             Grid.Row="3"
-                            VerticalAlignment="Center"
-                            Text="Split mode" />
-                        <controls:HotKeyTextBox
-                            Grid.Row="3"
-                            Grid.Column="1"
-                            Width="120"
-                            HorizontalAlignment="Right"
-                            VerticalAlignment="Center"
-                            HotKey="{Binding ToggleHotKey}"
-                            Style="{ThemeResource TextBoxStyle}"
-                            TextAlignment="Center" />
+                            HotKey="{x:Bind ViewModel.SplitModeHotKey, Mode=TwoWay}"
+                            LabelText="Split mode" />
 
-                        <TextBlock
+                        <controls:TextBlockWithHotKey
                             Grid.Row="4"
-                            VerticalAlignment="Center"
-                            Text="Select leftward" />
-                        <controls:HotKeyTextBox
-                            Grid.Row="4"
-                            Grid.Column="1"
-                            Width="120"
-                            HorizontalAlignment="Right"
-                            VerticalAlignment="Center"
-                            HotKey="{Binding ToggleHotKey}"
-                            Style="{ThemeResource TextBoxStyle}"
-                            TextAlignment="Center" />
+                            HotKey="{x:Bind ViewModel.SelectLeftwardHotKey, Mode=TwoWay}"
+                            LabelText="Select leftward" />
 
-                        <TextBlock
+                        <controls:TextBlockWithHotKey
                             Grid.Row="5"
-                            VerticalAlignment="Center"
-                            Text="Select rightward" />
-                        <controls:HotKeyTextBox
-                            Grid.Row="5"
-                            Grid.Column="1"
-                            Width="120"
-                            HorizontalAlignment="Right"
-                            VerticalAlignment="Center"
-                            HotKey="{Binding ToggleHotKey}"
-                            Style="{ThemeResource TextBoxStyle}"
-                            TextAlignment="Center" />
+                            HotKey="{x:Bind ViewModel.SelectRightwardHotKey, Mode=TwoWay}"
+                            LabelText="Select rightward" />
 
-                        <TextBlock
+                        <controls:TextBlockWithHotKey
                             Grid.Row="6"
-                            VerticalAlignment="Center"
-                            Text="Main track magnet" />
-                        <controls:HotKeyTextBox
-                            Grid.Row="6"
-                            Grid.Column="1"
-                            Width="120"
-                            HorizontalAlignment="Right"
-                            VerticalAlignment="Center"
-                            HotKey="{Binding ToggleHotKey}"
-                            Style="{ThemeResource TextBoxStyle}"
-                            TextAlignment="Center" />
+                            HotKey="{x:Bind ViewModel.MainTrackMagnetHotKey, Mode=TwoWay}"
+                            LabelText="Main track magnet" />
 
-                        <TextBlock
+                        <controls:TextBlockWithHotKey
                             Grid.Row="7"
-                            VerticalAlignment="Center"
-                            Text="Auto snapping" />
-                        <controls:HotKeyTextBox
-                            Grid.Row="7"
-                            Grid.Column="1"
-                            Width="120"
-                            HorizontalAlignment="Right"
-                            VerticalAlignment="Center"
-                            HotKey="{Binding ToggleHotKey}"
-                            Style="{ThemeResource TextBoxStyle}"
-                            TextAlignment="Center" />
+                            HotKey="{x:Bind ViewModel.AutoSnappingHotKey, Mode=TwoWay}"
+                            LabelText="Auto snapping" />
 
-                        <TextBlock
+                        <controls:TextBlockWithHotKey
                             Grid.Row="8"
-                            VerticalAlignment="Center"
-                            Text="Linkage switch" />
-                        <controls:HotKeyTextBox
-                            Grid.Row="8"
-                            Grid.Column="1"
-                            Width="120"
-                            HorizontalAlignment="Right"
-                            VerticalAlignment="Center"
-                            HotKey="{Binding ToggleHotKey}"
-                            Style="{ThemeResource TextBoxStyle}"
-                            TextAlignment="Center" />
+                            HotKey="{x:Bind ViewModel.LinkageSwitchHotKey, Mode=TwoWay}"
+                            LabelText="Linkage switch" />
 
-                        <TextBlock
+                        <controls:TextBlockWithHotKey
                             Grid.Row="9"
-                            VerticalAlignment="Center"
-                            Text="Prewiew axis switch" />
-                        <controls:HotKeyTextBox
-                            Grid.Row="9"
-                            Grid.Column="1"
-                            Width="120"
-                            HorizontalAlignment="Right"
-                            VerticalAlignment="Center"
-                            HotKey="{Binding ToggleHotKey}"
-                            Style="{ThemeResource TextBoxStyle}"
-                            TextAlignment="Center" />
+                            HotKey="{x:Bind ViewModel.PreviewAxisSwitchHotKey, Mode=TwoWay}"
+                            LabelText="Preview axis switch" />
 
-                        <TextBlock
+                        <controls:TextBlockWithHotKey
                             Grid.Row="10"
-                            VerticalAlignment="Center"
-                            Text="Zoom in" />
-                        <controls:HotKeyTextBox
-                            Grid.Row="10"
-                            Grid.Column="1"
-                            Width="120"
-                            HorizontalAlignment="Right"
-                            VerticalAlignment="Center"
-                            HotKey="{Binding ToggleHotKey}"
-                            Style="{ThemeResource TextBoxStyle}"
-                            TextAlignment="Center" />
+                            HotKey="{x:Bind ViewModel.ZoomInHotKey, Mode=TwoWay}"
+                            LabelText="Zoom in" />
 
-                        <TextBlock
+                        <controls:TextBlockWithHotKey
                             Grid.Row="11"
-                            VerticalAlignment="Center"
-                            Text="Zoom out" />
-                        <controls:HotKeyTextBox
-                            Grid.Row="11"
-                            Grid.Column="1"
-                            Width="120"
-                            HorizontalAlignment="Right"
-                            VerticalAlignment="Center"
-                            HotKey="{Binding ToggleHotKey}"
-                            Style="{ThemeResource TextBoxStyle}"
-                            TextAlignment="Center" />
+                            HotKey="{x:Bind ViewModel.ZoomOutHotKey, Mode=TwoWay}"
+                            LabelText="Zoom out" />
 
-                        <TextBlock
+                        <controls:TextBlockWithHotKey
                             Grid.Row="12"
-                            VerticalAlignment="Center"
-                            Text="Zoom in/Zoom out" />
-                        <controls:HotKeyTextBox
-                            Grid.Row="12"
-                            Grid.Column="1"
-                            Width="120"
-                            HorizontalAlignment="Right"
-                            VerticalAlignment="Center"
-                            HotKey="{Binding ToggleHotKey}"
-                            Style="{ThemeResource TextBoxStyle}"
-                            TextAlignment="Center" />
+                            HotKey="{x:Bind ViewModel.ZoomInZoomOutHotKey, Mode=TwoWay}"
+                            LabelText="Zoom in/Zoom out" />
 
-                        <TextBlock
+                        <controls:TextBlockWithHotKey
                             Grid.Row="13"
-                            VerticalAlignment="Center"
-                            Text="Up/Down" />
-                        <controls:HotKeyTextBox
-                            Grid.Row="13"
-                            Grid.Column="1"
-                            Width="120"
-                            HorizontalAlignment="Right"
-                            VerticalAlignment="Center"
-                            HotKey="{Binding ToggleHotKey}"
-                            Style="{ThemeResource TextBoxStyle}"
-                            TextAlignment="Center" />
+                            HotKey="{x:Bind ViewModel.UpDownHotKey, Mode=TwoWay}"
+                            LabelText="Up/Down" />
 
-                        <TextBlock
+                        <controls:TextBlockWithHotKey
                             Grid.Row="14"
-                            VerticalAlignment="Center"
-                            Text="Left/Right" />
-                        <controls:HotKeyTextBox
-                            Grid.Row="14"
-                            Grid.Column="1"
-                            Width="120"
-                            HorizontalAlignment="Right"
-                            VerticalAlignment="Center"
-                            HotKey="{Binding ToggleHotKey}"
-                            Style="{ThemeResource TextBoxStyle}"
-                            TextAlignment="Center" />
+                            HotKey="{x:Bind ViewModel.RightRightHotKey, Mode=TwoWay}"
+                            LabelText="Zoom in" />
 
-                        <TextBlock
+                        <controls:TextBlockWithHotKey
                             Grid.Row="15"
-                            VerticalAlignment="Center"
-                            Text="Active/Deactive clip" />
-                        <controls:HotKeyTextBox
-                            Grid.Row="15"
-                            Grid.Column="1"
-                            Width="120"
-                            HorizontalAlignment="Right"
-                            VerticalAlignment="Center"
-                            HotKey="{Binding ToggleHotKey}"
-                            Style="{ThemeResource TextBoxStyle}"
-                            TextAlignment="Center" />
+                            HotKey="{x:Bind ViewModel.ActiveDeactiveClipHotKey, Mode=TwoWay}"
+                            LabelText="Active/Deactive clip" />
 
-                        <TextBlock
+                        <controls:TextBlockWithHotKey
                             Grid.Row="16"
-                            VerticalAlignment="Center"
-                            Text="Separate/Restore audio" />
-                        <controls:HotKeyTextBox
-                            Grid.Row="16"
-                            Grid.Column="1"
-                            Width="120"
-                            HorizontalAlignment="Right"
-                            VerticalAlignment="Center"
-                            HotKey="{Binding ToggleHotKey}"
-                            Style="{ThemeResource TextBoxStyle}"
-                            TextAlignment="Center" />
+                            HotKey="{x:Bind ViewModel.SeparateRestoreAudioHotKey, Mode=TwoWay}"
+                            LabelText="Separate/Restore audio" />
 
-                        <TextBlock
+                        <controls:TextBlockWithHotKey
                             Grid.Row="17"
-                            VerticalAlignment="Center"
-                            Text="Math cut" />
-                        <controls:HotKeyTextBox
-                            Grid.Row="17"
-                            Grid.Column="1"
-                            Width="120"
-                            HorizontalAlignment="Right"
-                            VerticalAlignment="Center"
-                            HotKey="{Binding ToggleHotKey}"
-                            Style="{ThemeResource TextBoxStyle}"
-                            TextAlignment="Center" />
+                            HotKey="{x:Bind ViewModel.MathCutHotKey, Mode=TwoWay}"
+                            LabelText="Math cut" />
 
-                        <TextBlock
+                        <controls:TextBlockWithHotKey
                             Grid.Row="18"
-                            VerticalAlignment="Center"
-                            Text="Previous frame" />
-                        <controls:HotKeyTextBox
-                            Grid.Row="18"
+                            HotKey="{x:Bind ViewModel.PreviousFrameHotKey, Mode=TwoWay}"
+                            LabelText="Previous frame" />
+
+                        <controls:TextBlockWithHotKey
                             Grid.Column="1"
-                            Width="120"
-                            HorizontalAlignment="Right"
-                            VerticalAlignment="Center"
-                            HotKey="{Binding ToggleHotKey}"
-                            Style="{ThemeResource TextBoxStyle}"
-                            TextAlignment="Center" />
+                            HotKey="{x:Bind ViewModel.NextFrameHotKey, Mode=TwoWay}"
+                            LabelText="Next frame" />
 
-                        <TextBlock
-                            Grid.Column="2"
-                            VerticalAlignment="Center"
-                            Text="Next frame" />
-                        <controls:HotKeyTextBox
-                            Grid.Column="3"
-                            Width="120"
-                            HorizontalAlignment="Right"
-                            VerticalAlignment="Center"
-                            HotKey="{Binding ToggleHotKey}"
-                            Style="{ThemeResource TextBoxStyle}"
-                            TextAlignment="Center" />
-
-                        <TextBlock
+                        <controls:TextBlockWithHotKey
                             Grid.Row="1"
-                            Grid.Column="2"
-                            VerticalAlignment="Center"
-                            Text="Locate to first frame" />
-                        <controls:HotKeyTextBox
-                            Grid.Row="1"
-                            Grid.Column="3"
-                            Width="120"
-                            HorizontalAlignment="Right"
-                            VerticalAlignment="Center"
-                            HotKey="{Binding ToggleHotKey}"
-                            Style="{ThemeResource TextBoxStyle}"
-                            TextAlignment="Center" />
+                            Grid.Column="1"
+                            HotKey="{x:Bind ViewModel.LocateToFirstFrameHotKey, Mode=TwoWay}"
+                            LabelText="Locate to first frame" />
 
-                        <TextBlock
+                        <controls:TextBlockWithHotKey
                             Grid.Row="2"
-                            Grid.Column="2"
-                            VerticalAlignment="Center"
-                            Text="Locate to last frame" />
-                        <controls:HotKeyTextBox
-                            Grid.Row="2"
-                            Grid.Column="3"
-                            Width="120"
-                            HorizontalAlignment="Right"
-                            VerticalAlignment="Center"
-                            HotKey="{Binding ToggleHotKey}"
-                            Style="{ThemeResource TextBoxStyle}"
-                            TextAlignment="Center" />
+                            Grid.Column="1"
+                            HotKey="{x:Bind ViewModel.LocateToLastFrameHotKey, Mode=TwoWay}"
+                            LabelText="Locate to last frame" />
 
-                        <TextBlock
+                        <controls:TextBlockWithHotKey
                             Grid.Row="3"
-                            Grid.Column="2"
-                            VerticalAlignment="Center"
-                            Text="Last cut point" />
-                        <controls:HotKeyTextBox
-                            Grid.Row="3"
-                            Grid.Column="3"
-                            Width="120"
-                            HorizontalAlignment="Right"
-                            VerticalAlignment="Center"
-                            HotKey="{Binding ToggleHotKey}"
-                            Style="{ThemeResource TextBoxStyle}"
-                            TextAlignment="Center" />
+                            Grid.Column="1"
+                            HotKey="{x:Bind ViewModel.LastCutPointHotKey, Mode=TwoWay}"
+                            LabelText="Last cut point" />
 
-                        <TextBlock
+                        <controls:TextBlockWithHotKey
                             Grid.Row="4"
-                            Grid.Column="2"
-                            VerticalAlignment="Center"
-                            Text="Next cut point" />
-                        <controls:HotKeyTextBox
-                            Grid.Row="4"
-                            Grid.Column="3"
-                            Width="120"
-                            HorizontalAlignment="Right"
-                            VerticalAlignment="Center"
-                            HotKey="{Binding ToggleHotKey}"
-                            Style="{ThemeResource TextBoxStyle}"
-                            TextAlignment="Center" />
+                            Grid.Column="1"
+                            HotKey="{x:Bind ViewModel.NextCutPointHotKey, Mode=TwoWay}"
+                            LabelText="Next cut point" />
 
-                        <TextBlock
+                        <controls:TextBlockWithHotKey
                             Grid.Row="5"
-                            Grid.Column="2"
-                            VerticalAlignment="Center"
-                            Text="In point" />
-                        <controls:HotKeyTextBox
-                            Grid.Row="5"
-                            Grid.Column="3"
-                            Width="120"
-                            HorizontalAlignment="Right"
-                            VerticalAlignment="Center"
-                            HotKey="{Binding ToggleHotKey}"
-                            Style="{ThemeResource TextBoxStyle}"
-                            TextAlignment="Center" />
+                            Grid.Column="1"
+                            HotKey="{x:Bind ViewModel.InPointHotKey, Mode=TwoWay}"
+                            LabelText="In point" />
 
-                        <TextBlock
+                        <controls:TextBlockWithHotKey
                             Grid.Row="6"
-                            Grid.Column="2"
-                            VerticalAlignment="Center"
-                            Text="Out point" />
-                        <controls:HotKeyTextBox
-                            Grid.Row="6"
-                            Grid.Column="3"
-                            Width="120"
-                            HorizontalAlignment="Right"
-                            VerticalAlignment="Center"
-                            HotKey="{Binding ToggleHotKey}"
-                            Style="{ThemeResource TextBoxStyle}"
-                            TextAlignment="Center" />
+                            Grid.Column="1"
+                            HotKey="{x:Bind ViewModel.OutPointHotKey, Mode=TwoWay}"
+                            LabelText="Out point" />
 
-                        <TextBlock
+                        <controls:TextBlockWithHotKey
                             Grid.Row="7"
-                            Grid.Column="2"
-                            VerticalAlignment="Center"
-                            Text="Select an area by clip" />
-                        <controls:HotKeyTextBox
-                            Grid.Row="7"
-                            Grid.Column="3"
-                            Width="120"
-                            HorizontalAlignment="Right"
-                            VerticalAlignment="Center"
-                            HotKey="{Binding ToggleHotKey}"
-                            Style="{ThemeResource TextBoxStyle}"
-                            TextAlignment="Center" />
+                            Grid.Column="1"
+                            HotKey="{x:Bind ViewModel.SelectAnAreaByClipHotKey, Mode=TwoWay}"
+                            LabelText="Select an area by clip" />
 
-                        <TextBlock
+                        <controls:TextBlockWithHotKey
                             Grid.Row="8"
-                            Grid.Column="2"
-                            VerticalAlignment="Center"
-                            Text="Unselect area" />
-                        <controls:HotKeyTextBox
-                            Grid.Row="8"
-                            Grid.Column="3"
-                            Width="120"
-                            HorizontalAlignment="Right"
-                            VerticalAlignment="Center"
-                            HotKey="{Binding ToggleHotKey}"
-                            Style="{ThemeResource TextBoxStyle}"
-                            TextAlignment="Center" />
+                            Grid.Column="1"
+                            HotKey="{x:Bind ViewModel.UnselectAnAreaHotKey, Mode=TwoWay}"
+                            LabelText="Unselect area" />
 
-                        <TextBlock
+                        <controls:TextBlockWithHotKey
                             Grid.Row="9"
-                            Grid.Column="2"
-                            VerticalAlignment="Center"
-                            Text="Group" />
-                        <controls:HotKeyTextBox
-                            Grid.Row="9"
-                            Grid.Column="3"
-                            Width="120"
-                            HorizontalAlignment="Right"
-                            VerticalAlignment="Center"
-                            HotKey="{Binding ToggleHotKey}"
-                            Style="{ThemeResource TextBoxStyle}"
-                            TextAlignment="Center" />
+                            Grid.Column="1"
+                            HotKey="{x:Bind ViewModel.GroupHotKey, Mode=TwoWay}"
+                            LabelText="Group" />
 
-                        <TextBlock
+                        <controls:TextBlockWithHotKey
                             Grid.Row="10"
-                            Grid.Column="2"
-                            VerticalAlignment="Center"
-                            Text="Ungroup" />
-                        <controls:HotKeyTextBox
-                            Grid.Row="10"
-                            Grid.Column="3"
-                            Width="120"
-                            HorizontalAlignment="Right"
-                            VerticalAlignment="Center"
-                            HotKey="{Binding ToggleHotKey}"
-                            Style="{ThemeResource TextBoxStyle}"
-                            TextAlignment="Center" />
+                            Grid.Column="1"
+                            HotKey="{x:Bind ViewModel.UngroupHotKey, Mode=TwoWay}"
+                            LabelText="Unselect area" />
 
-                        <TextBlock
+                        <controls:TextBlockWithHotKey
                             Grid.Row="11"
-                            Grid.Column="2"
-                            VerticalAlignment="Center"
-                            Text="Show speed panel" />
-                        <controls:HotKeyTextBox
-                            Grid.Row="11"
-                            Grid.Column="3"
-                            Width="120"
-                            HorizontalAlignment="Right"
-                            VerticalAlignment="Center"
-                            HotKey="{Binding ToggleHotKey}"
-                            Style="{ThemeResource TextBoxStyle}"
-                            TextAlignment="Center" />
+                            Grid.Column="1"
+                            HotKey="{x:Bind ViewModel.ShowSpeedPanelHotKey, Mode=TwoWay}"
+                            LabelText="Show speed panel" />
 
-                        <TextBlock
+                        <controls:TextBlockWithHotKey
                             Grid.Row="12"
-                            Grid.Column="2"
-                            VerticalAlignment="Center"
-                            Text="Curve speed" />
-                        <controls:HotKeyTextBox
-                            Grid.Row="12"
-                            Grid.Column="3"
-                            Width="120"
-                            HorizontalAlignment="Right"
-                            VerticalAlignment="Center"
-                            HotKey="{Binding ToggleHotKey}"
-                            Style="{ThemeResource TextBoxStyle}"
-                            TextAlignment="Center" />
+                            Grid.Column="1"
+                            HotKey="{x:Bind ViewModel.CurveSpeedHotKey, Mode=TwoWay}"
+                            LabelText="Curve speed" />
 
-                        <TextBlock
+                        <controls:TextBlockWithHotKey
                             Grid.Row="13"
-                            Grid.Column="2"
-                            VerticalAlignment="Center"
-                            Text="Create compound clip" />
-                        <controls:HotKeyTextBox
-                            Grid.Row="13"
-                            Grid.Column="3"
-                            Width="120"
-                            HorizontalAlignment="Right"
-                            VerticalAlignment="Center"
-                            HotKey="{Binding ToggleHotKey}"
-                            Style="{ThemeResource TextBoxStyle}"
-                            TextAlignment="Center" />
+                            Grid.Column="1"
+                            HotKey="{x:Bind ViewModel.CreateCompoundClipHotKey, Mode=TwoWay}"
+                            LabelText="Create compound clip" />
 
-                        <TextBlock
+                        <controls:TextBlockWithHotKey
                             Grid.Row="14"
-                            Grid.Column="2"
-                            VerticalAlignment="Center"
-                            Text="Unlock compound clip draft" />
-                        <controls:HotKeyTextBox
-                            Grid.Row="14"
-                            Grid.Column="3"
-                            Width="120"
-                            HorizontalAlignment="Right"
-                            VerticalAlignment="Center"
-                            HotKey="{Binding ToggleHotKey}"
-                            Style="{ThemeResource TextBoxStyle}"
-                            TextAlignment="Center" />
+                            Grid.Column="1"
+                            HotKey="{x:Bind ViewModel.UnlockCompoundClipDraftHotKey, Mode=TwoWay}"
+                            LabelText="Unlock compound clip draft" />
 
-                        <TextBlock
+                        <controls:TextBlockWithHotKey
                             Grid.Row="15"
-                            Grid.Column="2"
-                            VerticalAlignment="Center"
-                            Text="Volume +0.1dB" />
-                        <controls:HotKeyTextBox
-                            Grid.Row="15"
-                            Grid.Column="3"
-                            Width="120"
-                            HorizontalAlignment="Right"
-                            VerticalAlignment="Center"
-                            HotKey="{Binding ToggleHotKey}"
-                            Style="{ThemeResource TextBoxStyle}"
-                            TextAlignment="Center" />
+                            Grid.Column="1"
+                            HotKey="{x:Bind ViewModel.VolumePlusHotKey, Mode=TwoWay}"
+                            LabelText="Volume +0.1dB" />
 
-                        <TextBlock
+                        <controls:TextBlockWithHotKey
                             Grid.Row="16"
-                            Grid.Column="2"
-                            VerticalAlignment="Center"
-                            Text="Volume -0.1dB" />
-                        <controls:HotKeyTextBox
-                            Grid.Row="16"
-                            Grid.Column="3"
-                            Width="120"
-                            HorizontalAlignment="Right"
-                            VerticalAlignment="Center"
-                            HotKey="{Binding ToggleHotKey}"
-                            Style="{ThemeResource TextBoxStyle}"
-                            TextAlignment="Center" />
+                            Grid.Column="1"
+                            HotKey="{x:Bind ViewModel.VolumeMinusHotKey, Mode=TwoWay}"
+                            LabelText="Volume -0.1dB" />
 
-                        <TextBlock
+                        <controls:TextBlockWithHotKey
                             Grid.Row="17"
-                            Grid.Column="2"
-                            VerticalAlignment="Center"
-                            Text="In" />
-                        <controls:HotKeyTextBox
-                            Grid.Row="17"
-                            Grid.Column="3"
-                            Width="120"
-                            HorizontalAlignment="Right"
-                            VerticalAlignment="Center"
-                            HotKey="{Binding ToggleHotKey}"
-                            Style="{ThemeResource TextBoxStyle}"
-                            TextAlignment="Center" />
+                            Grid.Column="1"
+                            HotKey="{x:Bind ViewModel.InHotKey, Mode=TwoWay}"
+                            LabelText="In" />
 
                     </Grid>
                 </ScrollViewer>
@@ -592,50 +265,27 @@
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition />
                         <ColumnDefinition />
-                        <ColumnDefinition />
-                        <ColumnDefinition />
                     </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
                         <RowDefinition />
                         <RowDefinition />
                     </Grid.RowDefinitions>
 
-                    <TextBlock VerticalAlignment="Center" Text="Play/Pause" />
-                    <controls:HotKeyTextBox
-                        Grid.Column="1"
-                        Width="120"
-                        HorizontalAlignment="Right"
-                        VerticalAlignment="Center"
-                        HotKey="{Binding ToggleHotKey}"
-                        Style="{ThemeResource TextBoxStyle}"
-                        TextAlignment="Center" />
+                    <controls:TextBlockWithHotKey
+                        Grid.Row="0"
+                        HotKey="{x:Bind ViewModel.PlayPauseHotKey, Mode=TwoWay}"
+                        LabelText="Play/Pause" />
 
-                    <TextBlock
+                    <controls:TextBlockWithHotKey
                         Grid.Row="1"
-                        VerticalAlignment="Center"
-                        Text="Enter/Exit full screen" />
-                    <controls:HotKeyTextBox
-                        Grid.Row="1"
-                        Grid.Column="1"
-                        Width="120"
-                        HorizontalAlignment="Right"
-                        VerticalAlignment="Center"
-                        HotKey="{Binding ToggleHotKey}"
-                        Style="{ThemeResource TextBoxStyle}"
-                        TextAlignment="Center" />
+                        HotKey="{x:Bind ViewModel.VolumePlusHotKey, Mode=TwoWay}"
+                        LabelText="Enter/Exit full screen" />
 
-                    <TextBlock
-                        Grid.Column="2"
-                        VerticalAlignment="Center"
-                        Text="Enter/Exit full screen" />
-                    <controls:HotKeyTextBox
-                        Grid.Column="3"
-                        Width="120"
-                        HorizontalAlignment="Right"
-                        VerticalAlignment="Center"
-                        HotKey="{Binding ToggleHotKey}"
-                        Style="{ThemeResource TextBoxStyle}"
-                        TextAlignment="Center" />
+                    <controls:TextBlockWithHotKey
+                        Grid.Column="1"
+                        HotKey="{x:Bind ViewModel.CancelPlayerAlignmentHotKey, Mode=TwoWay}"
+                        LabelText="Cancel player alignment" />
+
                 </Grid>
             </PivotItem>
 
@@ -647,8 +297,6 @@
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition />
                         <ColumnDefinition />
-                        <ColumnDefinition />
-                        <ColumnDefinition />
                     </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
                         <RowDefinition />
@@ -660,187 +308,73 @@
                         <RowDefinition />
                     </Grid.RowDefinitions>
 
-                    <TextBlock VerticalAlignment="Center" Text="Copy" />
-                    <controls:HotKeyTextBox
-                        Grid.Column="1"
-                        Width="120"
-                        HorizontalAlignment="Right"
-                        VerticalAlignment="Center"
-                        HotKey="{Binding ToggleHotKey}"
-                        Style="{ThemeResource TextBoxStyle}"
-                        TextAlignment="Center" />
+                    <controls:TextBlockWithHotKey HotKey="{x:Bind ViewModel.CopyHotKey, Mode=TwoWay}" LabelText="Center" />
 
-                    <TextBlock
+                    <controls:TextBlockWithHotKey
                         Grid.Row="1"
-                        VerticalAlignment="Center"
-                        Text="Cut" />
-                    <controls:HotKeyTextBox
-                        Grid.Row="1"
-                        Grid.Column="1"
-                        Width="120"
-                        HorizontalAlignment="Right"
-                        VerticalAlignment="Center"
-                        HotKey="{Binding ToggleHotKey}"
-                        Style="{ThemeResource TextBoxStyle}"
-                        TextAlignment="Center" />
+                        HotKey="{x:Bind ViewModel.CutHotKey, Mode=TwoWay}"
+                        LabelText="Cut" />
 
-                    <TextBlock
+                    <controls:TextBlockWithHotKey
                         Grid.Row="2"
-                        VerticalAlignment="Center"
-                        Text="Paste" />
-                    <controls:HotKeyTextBox
-                        Grid.Row="2"
-                        Grid.Column="1"
-                        Width="120"
-                        HorizontalAlignment="Right"
-                        VerticalAlignment="Center"
-                        HotKey="{Binding ToggleHotKey}"
-                        Style="{ThemeResource TextBoxStyle}"
-                        TextAlignment="Center" />
+                        HotKey="{x:Bind ViewModel.PasteHotKey, Mode=TwoWay}"
+                        LabelText="Paste" />
 
-                    <TextBlock
+                    <controls:TextBlockWithHotKey
                         Grid.Row="3"
-                        VerticalAlignment="Center"
-                        Text="Delete" />
-                    <controls:HotKeyTextBox
-                        Grid.Row="3"
-                        Grid.Column="1"
-                        Width="120"
-                        HorizontalAlignment="Right"
-                        VerticalAlignment="Center"
-                        HotKey="{Binding ToggleHotKey}"
-                        Style="{ThemeResource TextBoxStyle}"
-                        TextAlignment="Center" />
+                        HotKey="{x:Bind ViewModel.DeleteHotKey, Mode=TwoWay}"
+                        LabelText="Delete" />
 
-                    <TextBlock
+                    <controls:TextBlockWithHotKey
                         Grid.Row="4"
-                        VerticalAlignment="Center"
-                        Text="Undo" />
-                    <controls:HotKeyTextBox
-                        Grid.Row="4"
-                        Grid.Column="1"
-                        Width="120"
-                        HorizontalAlignment="Right"
-                        VerticalAlignment="Center"
-                        HotKey="{Binding ToggleHotKey}"
-                        Style="{ThemeResource TextBoxStyle}"
-                        TextAlignment="Center" />
+                        HotKey="{x:Bind ViewModel.UndoHotKey, Mode=TwoWay}"
+                        LabelText="Undo" />
 
-                    <TextBlock
+                    <controls:TextBlockWithHotKey
                         Grid.Row="5"
-                        VerticalAlignment="Center"
-                        Text="Redo" />
-                    <controls:HotKeyTextBox
+                        HotKey="{x:Bind ViewModel.RedoHotKey, Mode=TwoWay}"
+                        LabelText="Redo" />
+
+                    <controls:TextBlockWithHotKey
+                        Grid.Row="3"
+                        HotKey="{x:Bind ViewModel.ImportMediaHotKey, Mode=TwoWay}"
+                        LabelText="Import media" />
+
+                    <controls:TextBlockWithHotKey
+                        Grid.Column="1"
+                        HotKey="{x:Bind ViewModel.ExportStillFrameHotKey, Mode=TwoWay}"
+                        LabelText="Export still frame" />
+
+                    <controls:TextBlockWithHotKey
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        HotKey="{x:Bind ViewModel.ExportHotKey, Mode=TwoWay}"
+                        LabelText="Export" />
+
+                    <controls:TextBlockWithHotKey
+                        Grid.Row="2"
+                        Grid.Column="1"
+                        HotKey="{x:Bind ViewModel.NewProjectHotKey, Mode=TwoWay}"
+                        LabelText="New project" />
+
+                    <controls:TextBlockWithHotKey
+                        Grid.Row="3"
+                        Grid.Column="1"
+                        HotKey="{x:Bind ViewModel.SwitchMaterialPanelHotKey, Mode=TwoWay}"
+                        LabelText="Switch material panel" />
+
+                    <controls:TextBlockWithHotKey
+                        Grid.Row="4"
+                        Grid.Column="1"
+                        HotKey="{x:Bind ViewModel.BackToEditHotKey, Mode=TwoWay}"
+                        LabelText="Back to edit" />
+
+                    <controls:TextBlockWithHotKey
                         Grid.Row="5"
                         Grid.Column="1"
-                        Width="120"
-                        HorizontalAlignment="Right"
-                        VerticalAlignment="Center"
-                        HotKey="{Binding ToggleHotKey}"
-                        Style="{ThemeResource TextBoxStyle}"
-                        TextAlignment="Center" />
+                        HotKey="{x:Bind ViewModel.QuitHotKey, Mode=TwoWay}"
+                        LabelText="Quit" />
 
-                    <TextBlock
-                        Grid.Row="6"
-                        VerticalAlignment="Center"
-                        Text="Import media" />
-                    <controls:HotKeyTextBox
-                        Grid.Row="6"
-                        Grid.Column="1"
-                        Width="120"
-                        HorizontalAlignment="Right"
-                        VerticalAlignment="Center"
-                        HotKey="{Binding ToggleHotKey}"
-                        Style="{ThemeResource TextBoxStyle}"
-                        TextAlignment="Center" />
-
-                    <TextBlock
-                        Grid.Column="2"
-                        VerticalAlignment="Center"
-                        Text="Export still frame" />
-                    <controls:HotKeyTextBox
-                        Grid.Column="3"
-                        Width="120"
-                        HorizontalAlignment="Right"
-                        VerticalAlignment="Center"
-                        HotKey="{Binding ToggleHotKey}"
-                        Style="{ThemeResource TextBoxStyle}"
-                        TextAlignment="Center" />
-
-                    <TextBlock
-                        Grid.Row="1"
-                        Grid.Column="2"
-                        VerticalAlignment="Center"
-                        Text="Export" />
-                    <controls:HotKeyTextBox
-                        Grid.Row="1"
-                        Grid.Column="3"
-                        Width="120"
-                        HorizontalAlignment="Right"
-                        VerticalAlignment="Center"
-                        HotKey="{Binding ToggleHotKey}"
-                        Style="{ThemeResource TextBoxStyle}"
-                        TextAlignment="Center" />
-
-                    <TextBlock
-                        Grid.Row="2"
-                        Grid.Column="2"
-                        VerticalAlignment="Center"
-                        Text="New project" />
-                    <controls:HotKeyTextBox
-                        Grid.Row="2"
-                        Grid.Column="3"
-                        Width="120"
-                        HorizontalAlignment="Right"
-                        VerticalAlignment="Center"
-                        HotKey="{Binding ToggleHotKey}"
-                        Style="{ThemeResource TextBoxStyle}"
-                        TextAlignment="Center" />
-
-                    <TextBlock
-                        Grid.Row="3"
-                        Grid.Column="2"
-                        VerticalAlignment="Center"
-                        Text="Switch material panel" />
-                    <controls:HotKeyTextBox
-                        Grid.Row="3"
-                        Grid.Column="3"
-                        Width="120"
-                        HorizontalAlignment="Right"
-                        VerticalAlignment="Center"
-                        HotKey="{Binding ToggleHotKey}"
-                        Style="{ThemeResource TextBoxStyle}"
-                        TextAlignment="Center" />
-
-                    <TextBlock
-                        Grid.Row="4"
-                        Grid.Column="2"
-                        VerticalAlignment="Center"
-                        Text="Back to edit" />
-                    <controls:HotKeyTextBox
-                        Grid.Row="4"
-                        Grid.Column="3"
-                        Width="120"
-                        HorizontalAlignment="Right"
-                        VerticalAlignment="Center"
-                        HotKey="{Binding ToggleHotKey}"
-                        Style="{ThemeResource TextBoxStyle}"
-                        TextAlignment="Center" />
-
-                    <TextBlock
-                        Grid.Row="5"
-                        Grid.Column="2"
-                        VerticalAlignment="Center"
-                        Text="Quit" />
-                    <controls:HotKeyTextBox
-                        Grid.Row="5"
-                        Grid.Column="3"
-                        Width="120"
-                        HorizontalAlignment="Right"
-                        VerticalAlignment="Center"
-                        HotKey="{Binding ToggleHotKey}"
-                        Style="{ThemeResource TextBoxStyle}"
-                        TextAlignment="Center" />
                 </Grid>
             </PivotItem>
 
@@ -852,35 +386,18 @@
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition />
                         <ColumnDefinition />
-                        <ColumnDefinition />
-                        <ColumnDefinition />
                     </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
                         <RowDefinition />
                     </Grid.RowDefinitions>
 
-                    <TextBlock VerticalAlignment="Center" Text="Split captions" />
-                    <controls:HotKeyTextBox
-                        Grid.Column="1"
-                        Width="120"
-                        HorizontalAlignment="Right"
-                        VerticalAlignment="Center"
-                        HotKey="{Binding ToggleHotKey}"
-                        Style="{ThemeResource TextBoxStyle}"
-                        TextAlignment="Center" />
+                    <controls:TextBlockWithHotKey HotKey="{x:Bind ViewModel.SplitCaptionsHotKey, Mode=TwoWay}" LabelText="Split captions" />
 
-                    <TextBlock
-                        Grid.Column="2"
-                        VerticalAlignment="Center"
-                        Text="Captions line wrap" />
-                    <controls:HotKeyTextBox
-                        Grid.Column="3"
-                        Width="120"
-                        HorizontalAlignment="Right"
-                        VerticalAlignment="Center"
-                        HotKey="{Binding ToggleHotKey}"
-                        Style="{ThemeResource TextBoxStyle}"
-                        TextAlignment="Center" />
+                    <controls:TextBlockWithHotKey
+                        Grid.Column="1"
+                        HotKey="{x:Bind ViewModel.CaptionsLineWrapHotKey, Mode=TwoWay}"
+                        LabelText="Captions line wrap" />
+
                 </Grid>
             </PivotItem>
         </Pivot>

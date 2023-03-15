@@ -53,6 +53,7 @@ namespace CapCutClone
                     .AddTransient<MainViewModel>() //ViewModels
                     .AddTransient<SettingsViewModel>()
                     .AddTransient<VideoEditorViewModel>()
+                    .AddTransient<ShortcutViewModel>()
                     .BuildServiceProvider());
             }
             
